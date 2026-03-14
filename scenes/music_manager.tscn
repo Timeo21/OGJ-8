@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bnqvv1laywwwn"]
+
+[ext_resource type="Script" uid="uid://bw1b425yyfk05" path="res://scripts/singletons/music_manager.gd" id="1_hetdf"]
+[ext_resource type="AudioStream" uid="uid://w5fwieum7afd" path="res://assets/musics/gamejam1.mp3" id="1_tn5dr"]
+
+[node name="MusicManager" type="Node" unique_id=891249277 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("1_hetdf")
+audio_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=112407816]
+stream = ExtResource("1_tn5dr")
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

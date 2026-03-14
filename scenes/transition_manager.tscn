@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhs4pxnv1bdaf"]
 
-[ext_resource type="Script" uid="uid://muy6y0cpegrr" path="res://scripts/transition_manager.gd" id="1_nk83w"]
+[ext_resource type="Script" uid="uid://muy6y0cpegrr" path="res://scripts/singletons/transition_manager.gd" id="1_nk83w"]
 [ext_resource type="Shader" uid="uid://bs2dd2a6b38cn" path="res://shaders/transition_manager.gdshader" id="2_sb1xu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t501d"]
