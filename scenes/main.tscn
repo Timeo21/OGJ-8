@@ -15,7 +15,7 @@ script = ExtResource("1_o5qli")
 
 [node name="Fish" parent="." unique_id=2065414123 instance=ExtResource("2_0wfyh")]
 position = Vector2(-14, 14)
-speed_angular = 50.0
+speed_angular = 200.0
 speed = 100.0
 
 [node name="Cursor" parent="." unique_id=29777647 instance=ExtResource("3_sugp2")]

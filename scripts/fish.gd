@@ -5,6 +5,15 @@ extends Node2D
 var dir = Vector2.RIGHT
 var time_elapsed =0
 @onready var animation : AnimatedSprite2D = $Area2D/AnimatedSprite2D
+
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+
+
+
+
+@onready var HEIGHT = get_viewport().get_visible_rect().size.y
+@onready var WIDTH = get_viewport().get_visible_rect().size.x
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	dir = dir.rotated(randf_range(-180,180)/(180*PI) * speed_angular)
@@ -20,17 +29,17 @@ func _process(delta: float) -> void:
 		#print(point)
 	#dwprint(speed)
 	time_elapsed += delta
-	if (time_elapsed > 0.5):
+	if (time_elapsed > 2.0):
 		dir = dir.rotated(randf_range(-360,360)/(180*PI) * speed_angular * delta)
 		time_elapsed =0
 	position += dir.normalized() *speed *delta
-	if (position.x < -320):
+	if (position.x < -320 +collision_shape_2d.shape.get_rect().size.x/2):
 		dir = (dir.normalized() + Vector2.RIGHT).normalized() 
-	elif (position.x>320):
+	elif (position.x>320 - collision_shape_2d.shape.get_rect().size.x/2):
 		dir = (dir.normalized() + Vector2.LEFT).normalized()
-	elif (position.y >180):
+	elif (position.y >180- collision_shape_2d.shape.get_rect().size.y/2):
 		dir = (dir.normalized() + Vector2.UP).normalized()
-	elif (position.y < -180):
+	elif (position.y < -180+ collision_shape_2d.shape.get_rect().size.y/2):
 		dir = (dir.normalized() + Vector2.DOWN).normalized()
 	pass
 func handle_sprite() -> void:
