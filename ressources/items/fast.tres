@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://gxm6kpt2xk67"]
+
+[ext_resource type="Script" uid="uid://dxnf2wjrm02" path="res://scripts/GameItem.gd" id="1_hrufi"]
+[ext_resource type="Texture2D" uid="uid://b5f33agcwrnbb" path="res://assets/fast.png" id="1_k8cyb"]
+
+[resource]
+script = ExtResource("1_hrufi")
+name = "Fast"
+id = 4
+image = ExtResource("1_k8cyb")
+metadata/_custom_type_script = "uid://dxnf2wjrm02"

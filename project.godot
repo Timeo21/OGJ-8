@@ -15,6 +15,10 @@ run/main_scene="uid://clcywy3bjl68a"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+Utils="*uid://ca7bwtdpp3efo"
+
 [display]
 
 window/size/viewport_width=640
