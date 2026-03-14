@@ -1,6 +1,8 @@
 class_name DaySummaryPanel
 extends PanelContainer
 
+signal day_summary_next
+
 @export var easy_num: Label
 @export var normal_num: Label
 @export var hard_num: Label
@@ -30,3 +32,7 @@ func display_day_summary(day_summary: DaySummary) -> void:
 	
 	var tot := v1+v2+v3
 	total_money.text = "%d🪙" % tot
+
+
+func _on_button_pressed() -> void:
+	day_summary_next.emit()

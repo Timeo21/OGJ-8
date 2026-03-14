@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dot5nw3cee6xr"]
 
-[ext_resource type="Script" uid="uid://c3pyh52cjbn6y" path="res://scenes/buy_panel.gd" id="1_lqr4q"]
+[ext_resource type="Script" uid="uid://c3pyh52cjbn6y" path="res://scripts/buy_panel.gd" id="1_lqr4q"]
 [ext_resource type="Texture2D" uid="uid://b5f33agcwrnbb" path="res://assets/fast.png" id="2_uyl20"]
 [ext_resource type="Texture2D" uid="uid://bxl3m04s4mk7t" path="res://assets/out_of_stock.png" id="2_wgexy"]
 
@@ -106,3 +106,4 @@ text = "Next"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1/ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ButtonMiddle" to="." method="_on_button_middle_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ButtonRight" to="." method="_on_button_right_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/Button" to="." method="_on_button_pressed"]

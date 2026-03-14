@@ -3,6 +3,7 @@ extends Node
 @export var test_number: int = 1
 
 func _ready() -> void:
+	print("in tester")
 	if test_number == 1:
 		var db := GameState.item_db
 		for i in db:

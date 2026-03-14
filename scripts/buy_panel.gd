@@ -1,6 +1,8 @@
 class_name BuyPanel
 extends Panel
 
+signal buy_panel_next
+
 @export var image1: TextureRect
 @export var image2: TextureRect
 @export var image3: TextureRect
@@ -17,7 +19,6 @@ var to_offer: Array[Utils.ItemId]
 
 func setup_shop() -> void:
 	to_offer = GameState.item_pool
-	print(GameState.item_pool)
 	to_offer.shuffle()
 	to_offer = to_offer.slice(0, 3)
 	
@@ -31,7 +32,6 @@ func setup_shop() -> void:
 
 func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
 	var db: Dictionary[Utils.ItemId, GameItem] = GameState.item_db
-	print(to_offer)
 	var item: GameItem = db[to_offer[pos]]
 	if GameState.bank_money < item.price:
 		return
@@ -44,7 +44,7 @@ func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
 	GameState.owned_items.push_back(selected)
 	
 	images[pos].texture = out_of_stock_img
-	buy_buttons[pos].text =  ""
+	buy_buttons[pos].text =  "-"
 	buy_buttons[pos].disabled = true
 	
 
@@ -56,3 +56,7 @@ func _on_button_middle_pressed() -> void:
 
 func _on_button_right_pressed() -> void:
 	process_buy_press(Utils.BuyButtonPostion.RIGHT)
+
+
+func _on_button_pressed() -> void:
+	buy_panel_next.emit()

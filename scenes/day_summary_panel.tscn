@@ -119,3 +119,5 @@ layout_mode = 2
 custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 text = "NEXT"
+
+[connection signal="pressed" from="MarginContainer/VSplitContainer/CenterContainer/Button" to="." method="_on_button_pressed"]
