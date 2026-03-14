@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://2fdd7j46vxee"]
+
+[ext_resource type="Texture2D" uid="uid://chenloyjni1lp" path="res://assets/prediction.png" id="1_obx4w"]
+[ext_resource type="Script" uid="uid://dxnf2wjrm02" path="res://scripts/GameItem.gd" id="1_ydlgo"]
+
+[resource]
+script = ExtResource("1_ydlgo")
+name = "prediciton"
+id = 1
+image = ExtResource("1_obx4w")
+metadata/_custom_type_script = "uid://dxnf2wjrm02"
