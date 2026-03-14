@@ -1,3 +1,4 @@
+class_name DaySummaryPanel
 extends PanelContainer
 
 @export var easy_num: Label

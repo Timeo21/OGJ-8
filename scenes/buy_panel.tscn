@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dot5nw3cee6xr"]
+
+[ext_resource type="Script" uid="uid://c3pyh52cjbn6y" path="res://scenes/buy_panel.gd" id="1_lqr4q"]
+[ext_resource type="Texture2D" uid="uid://b5f33agcwrnbb" path="res://assets/fast.png" id="2_uyl20"]
+
+[node name="BuyPanel" type="Panel" unique_id=2124875960]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 51.0
+offset_right = -74.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lqr4q")
+
+[node name="Label" type="Label" parent="." unique_id=1538008580]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "12🪙"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1844567335]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=593870955]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1867033752]
+layout_mode = 2
+text = "Buy an item"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1777952964]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=161114540]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1" unique_id=1861644331]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("2_uyl20")
+
+[node name="ButtonLeft" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1" unique_id=1911912965]
+layout_mode = 2
+text = "BUY"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2040011445]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=647984965]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("2_uyl20")
+
+[node name="ButtonMiddle" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=612332877]
+layout_mode = 2
+text = "BUY"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1794888924]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1921515458]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("2_uyl20")
+
+[node name="ButtonRight" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=672217081]
+layout_mode = 2
+text = "BUY"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=913416467]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=797136597]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+text = "Next"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1/ButtonLeft" to="." method="_on_button_left_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ButtonMiddle" to="." method="_on_button_middle_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ButtonRight" to="." method="_on_button_right_pressed"]

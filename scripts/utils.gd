@@ -2,6 +2,7 @@ extends Node
 
 enum ItemId {SLOW, PREDICTION, FREEZE, TP, FAST}
 enum FishType {EASY, NORMAL, HARD}
+enum BuyButtonPostion {LEFT, MIDDLE, RIGHT}
 
 const EASY_FISH_WORTH: int = 1
 const NORMAL_FISH_WORTH: int = 2
