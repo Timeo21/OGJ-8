@@ -1,23 +1,12 @@
 [gd_scene format=3 uid="uid://clcywy3bjl68a"]
 
 [ext_resource type="Script" uid="uid://b2uoh7rwwhg1" path="res://scripts/camera_2d.gd" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://1x7cvk2fh2ti" path="res://scripts/fish.gd" id="2_0wfyh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
-size = Vector2(129, 49)
 
 [node name="Node2D" type="Node2D" unique_id=1327590328]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1904801016]
+limit_left = -340
+limit_top = -180
+limit_right = 320
+limit_bottom = 180
 script = ExtResource("1_o5qli")
-
-[node name="Node2D" type="Node2D" parent="." unique_id=236607493]
-script = ExtResource("2_0wfyh")
-speed = null
-direction = null
-
-[node name="Area2D" type="Area2D" parent="Node2D" unique_id=2053462357]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=1207415261]
-position = Vector2(54.5, 14.5)
-shape = SubResource("RectangleShape2D_sugp2")
