@@ -36,8 +36,9 @@ scale = Vector2(0.5, 0.5)
 [node name="Gameplay" type="Node" parent="." unique_id=258947638]
 
 [node name="Camera2D" type="Camera2D" parent="Gameplay" unique_id=1904801016]
-position = Vector2(0, 5)
+position = Vector2(319, 181)
 enabled = false
+limit_enabled = false
 limit_left = -340
 limit_top = -180
 limit_right = 320
@@ -45,9 +46,9 @@ limit_bottom = 180
 script = ExtResource("1_o5qli")
 
 [node name="Fish" parent="Gameplay" unique_id=2065414123 instance=ExtResource("2_0wfyh")]
-position = Vector2(-14, 14)
+position = Vector2(304, 180)
 speed_angular = 200.0
 speed = 100.0
 
 [node name="Cursor" parent="Gameplay" unique_id=29777647 instance=ExtResource("3_sugp2")]
-position = Vector2(-316, -139)
+position = Vector2(332, 65)

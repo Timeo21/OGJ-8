@@ -42,6 +42,7 @@ func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
 	var idx: int = GameState.item_pool.find(selected)
 	GameState.item_pool.remove_at(idx)
 	GameState.owned_items.push_back(selected)
+	SignalBus.items_updated.emit()
 	
 	images[pos].texture = out_of_stock_img
 	buy_buttons[pos].text =  "-"

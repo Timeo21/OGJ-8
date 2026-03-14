@@ -20,6 +20,7 @@ config/icon="res://assets/icon.svg"
 Utils="*uid://ca7bwtdpp3efo"
 GameState="*uid://b1bak7uwrhm7r"
 TransitionPlayer="*uid://bhs4pxnv1bdaf"
+SignalBus="*uid://cbv50l1h8rk8e"
 
 [display]
 
