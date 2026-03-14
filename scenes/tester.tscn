@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6ahd1t42b8sd"]
+
+[ext_resource type="Script" uid="uid://cuicj3e1jp8ah" path="res://scripts/tester.gd" id="1_mnnv6"]
+[ext_resource type="PackedScene" uid="uid://cr0l7sl7l4gtu" path="res://scenes/day_summary_panel.tscn" id="2_qt16s"]
+[ext_resource type="PackedScene" uid="uid://dot5nw3cee6xr" path="res://scenes/buy_panel.tscn" id="3_m6jnb"]
+
+[node name="Tester" type="Node" unique_id=90102652]
+script = ExtResource("1_mnnv6")
+test_number = 3
+
+[node name="DaySummaryPanel" parent="." unique_id=73380075 instance=ExtResource("2_qt16s")]
+visible = false
+
+[node name="BuyPanel" parent="." unique_id=2124875960 instance=ExtResource("3_m6jnb")]
+visible = false

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bth3r3oxdsw0t"]
 
+[ext_resource type="Script" uid="uid://b2rcxd26qte3" path="res://scripts/shop.gd" id="1_1l46r"]
 [ext_resource type="PackedScene" uid="uid://cr0l7sl7l4gtu" path="res://scenes/day_summary_panel.tscn" id="1_lx5au"]
+[ext_resource type="PackedScene" uid="uid://dot5nw3cee6xr" path="res://scenes/buy_panel.tscn" id="2_xfvoa"]
 
 [node name="Shop" type="Control" unique_id=1618240600]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+script = ExtResource("1_1l46r")
 
 [node name="DaySummaryPanel" parent="." unique_id=73380075 instance=ExtResource("1_lx5au")]
 layout_mode = 1
@@ -17,3 +20,13 @@ offset_left = 141.0
 offset_top = 43.0
 offset_right = -135.0
 offset_bottom = -79.0
+
+[node name="BuyPanel" parent="." unique_id=2124875960 instance=ExtResource("2_xfvoa")]
+layout_mode = 1
+offset_left = 105.0
+offset_top = 17.0
+offset_right = -94.0
+offset_bottom = -53.0
+
+[connection signal="day_summary_next" from="DaySummaryPanel" to="." method="_on_day_summary_panel_day_summary_next"]
+[connection signal="buy_panel_next" from="BuyPanel" to="." method="_on_buy_panel_buy_panel_next"]

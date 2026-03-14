@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dot5nw3cee6xr"]
 
-[ext_resource type="Script" uid="uid://c3pyh52cjbn6y" path="res://scenes/buy_panel.gd" id="1_lqr4q"]
+[ext_resource type="Script" uid="uid://c3pyh52cjbn6y" path="res://scripts/buy_panel.gd" id="1_lqr4q"]
 [ext_resource type="Texture2D" uid="uid://b5f33agcwrnbb" path="res://assets/fast.png" id="2_uyl20"]
+[ext_resource type="Texture2D" uid="uid://bxl3m04s4mk7t" path="res://assets/out_of_stock.png" id="2_wgexy"]
 
-[node name="BuyPanel" type="Panel" unique_id=2124875960]
+[node name="BuyPanel" type="Panel" unique_id=2124875960 node_paths=PackedStringArray("image1", "image2", "image3", "buy1", "buy2", "buy3", "money_label")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,6 +15,14 @@ offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lqr4q")
+image1 = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1/TextureRect")
+image2 = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TextureRect")
+image3 = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/TextureRect")
+buy1 = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1/ButtonLeft")
+buy2 = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ButtonMiddle")
+buy3 = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ButtonRight")
+out_of_stock_img = ExtResource("2_wgexy")
+money_label = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=1538008580]
 layout_mode = 1
@@ -43,7 +52,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1867033752]
 layout_mode = 2
-text = "Buy an item"
+text = "Buy items !"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1777952964]
@@ -97,3 +106,4 @@ text = "Next"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1/ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ButtonMiddle" to="." method="_on_button_middle_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ButtonRight" to="." method="_on_button_right_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/Button" to="." method="_on_button_pressed"]

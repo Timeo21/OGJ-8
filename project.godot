@@ -18,6 +18,8 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Utils="*uid://ca7bwtdpp3efo"
+GameState="*uid://b1bak7uwrhm7r"
+TransitionPlayer="*uid://bhs4pxnv1bdaf"
 
 [display]
 

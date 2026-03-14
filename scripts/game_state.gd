@@ -1,5 +1,37 @@
 extends Node
 
-var owned_items: Array[GameItem] = []
-var item_pool: Array[GameItem] = Utils.ItemId.values()
-var bank_money: int = true 
+var owned_items: Array[Utils.ItemId] = []
+var bank_money: int = 0 
+@onready var item_pool: Array[Utils.ItemId] = load_item_pool()
+@onready var item_db: Dictionary[Utils.ItemId, GameItem] = load_resources_indexed_by_property("res://ressources/items/")
+
+func load_item_pool() -> Array[Utils.ItemId]:
+	var pool: Array[Utils.ItemId] = []
+
+	for v in Utils.ItemId.values():
+		pool.append(v)
+	return pool
+
+func load_resources_indexed_by_property(path: String) -> Dictionary[Utils.ItemId, GameItem]:
+	var result: Dictionary[Utils.ItemId, GameItem] = {}
+	var dir := DirAccess.open(path)
+	
+	if dir == null:
+		push_error("Cannot open directory: " + path)
+		return result
+	
+	dir.list_dir_begin()
+	var file_name := dir.get_next()
+	
+	while file_name != "":
+		if not dir.current_is_dir():
+			if file_name.ends_with(".tres") or file_name.ends_with(".res"):
+				var res: GameItem = load(path + "/" + file_name)
+				if res != null:
+					var key = res.id
+					result[key] = res
+		
+		file_name = dir.get_next()
+	
+	dir.list_dir_end()
+	return result
