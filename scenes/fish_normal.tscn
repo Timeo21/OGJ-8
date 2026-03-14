@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://c5xawcrwvcw7m"]
+
+[ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="1_rw13n"]
+[ext_resource type="Script" uid="uid://1x7cvk2fh2ti" path="res://scripts/fish_normal.gd" id="2_86irj"]
+[ext_resource type="Texture2D" uid="uid://bm7befgcmyb5m" path="res://assets/Fish_Blue-Sheet.png" id="2_y1g4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1g4l"]
+size = Vector2(50, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q56pm"]
+atlas = ExtResource("2_y1g4l")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i8v1"]
+atlas = ExtResource("2_y1g4l")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1nbk"]
+atlas = ExtResource("2_y1g4l")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pp5k"]
+atlas = ExtResource("2_y1g4l")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05q8q"]
+atlas = ExtResource("2_y1g4l")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkxtj"]
+atlas = ExtResource("2_y1g4l")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icwy0"]
+atlas = ExtResource("2_y1g4l")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86irj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q56pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i8v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1nbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pp5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05q8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkxtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icwy0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FishNormal" unique_id=2065414123 instance=ExtResource("1_rw13n")]
+script = ExtResource("2_86irj")
+speed_angular = 50.0
+speed = 100.0
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1660325061) index="0" unique_id=25789937]
+position = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_y1g4l")
+
+[node name="AnimatedSprite2D" parent="Area2D" parent_id_path=PackedInt32Array(1660325061) index="1" unique_id=653468763]
+sprite_frames = SubResource("SpriteFrames_86irj")
+
+[node name="ProgressBar" parent="." index="1" unique_id=2005186020]
+offset_left = 27.0
+offset_top = -13.0
+offset_right = 31.0
+offset_bottom = 14.0

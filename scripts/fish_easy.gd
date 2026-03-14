@@ -1,4 +1,4 @@
-extends Node2D
+extends Fish
 
 @export var min_speed = 80
 @export var max_speed = 120
@@ -13,17 +13,33 @@ var angular_speed: float = 0
 var speed: float = 0
 var timer: float = 0
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $Area2D/AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var HEIGHT = get_viewport().get_visible_rect().size.y
 @onready var WIDTH = get_viewport().get_visible_rect().size.x
 
+var sprite_height
+var sprite_width
+
 func _ready() -> void:
+	super._ready()
 	direction = Vector2.from_angle(randf() * 2 * PI).normalized()
+	animated_sprite_2d.play()
+	sprite_height = collision_shape_2d.shape.get_rect().size.y
+	sprite_width = collision_shape_2d.shape.get_rect().size.x
+	
 func _process(delta: float) -> void:
-	queue_redraw()
+	super._process(delta)
 	angular_speed = randf_range(min_angular_speed, max_angular_speed)
 	speed = randf_range(min_speed, max_speed)
 	targetV = (targetP - position).normalized()
 	angle = direction.angle_to(targetV)
+	
+	if direction.x > 0:
+		animated_sprite_2d.flip_h = false
+	elif direction.x < 0:
+		animated_sprite_2d.flip_h = true
+	
 
 	if abs((position-targetP).length()) < 3:
 		timer = randf_range(3.0, 6.0)
@@ -39,9 +55,9 @@ func _process(delta: float) -> void:
 
 	timer -= delta
 	position += direction.normalized() * speed * delta
-	position.x = clamp(position.x, -WIDTH/2, WIDTH/2)
-	position.y = clamp(position.y, -HEIGHT/2, HEIGHT/2)
-
-func _draw() -> void:
-	draw_line(Vector2.ZERO, direction.normalized() * 100, Color.RED, 1.0)
-	draw_circle(targetP - position, 5, Color.RED)
+	position.x = clamp(position.x, -WIDTH/2 + sprite_width/2, WIDTH/2 - sprite_width/2)
+	position.y = clamp(position.y, -HEIGHT/2 + sprite_height/2, HEIGHT/2 - sprite_height/2)
+#
+#func _draw() -> void:
+	#draw_line(Vector2.ZERO, direction.normalized() * 100, Color.RED, 1.0)
+	#draw_circle(targetP - position, 5, Color.RED)
