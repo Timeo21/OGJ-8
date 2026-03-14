@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bth3r3oxdsw0t"]
+
+[node name="Shop" type="Control" unique_id=1618240600]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
