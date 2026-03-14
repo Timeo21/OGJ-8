@@ -23,11 +23,12 @@ func _ready() -> void:
 
 func fade_out():
 	is_transitioning = true
-	color_rect.modulate.a = 0
+	color_rect.modulate.a = 1
 	color_rect.visible = true
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(color_rect, "modulate:a", 1, transition_time)
+	color_rect.material.set_shader_parameter("progress", 10)
+	tween.tween_property(color_rect.material, "shader_parameter/progress", 0, transition_time)
 	tween.finished.connect(on_fade_out_finished)
 	
 func on_fade_out_finished():
@@ -38,7 +39,7 @@ func on_fade_out_finished():
 func fade_in():
 	color_rect.modulate.a = 1
 	var tween = get_tree().create_tween()
-	tween.tween_property(color_rect, "modulate:a", 0, transition_time)
+	tween.tween_property(color_rect.material, "shader_parameter/progress", 10, transition_time)
 	tween.finished.connect(on_fade_in_finished)
 	
 
