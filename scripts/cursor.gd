@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 	
 	var prev_pos: Vector2 = position
 	position += speed*delta
-	position.x = clamp(position.x, border_offset, WIDTH - border_offset)
-	position.y = clamp(position.y, border_offset, HEIGHT - border_offset)
+	position.x = clamp(position.x, -WIDTH/2 - border_offset, WIDTH/2 - border_offset)
+	position.y = clamp(position.y, -HEIGHT/2 - border_offset, HEIGHT/2 - border_offset)
 	
 	# so that speed at botom is 0
 	speed = (position - prev_pos) / delta 
