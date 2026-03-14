@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnx0bxy80hj48" path="res://scripts/day_summary_panel.gd" id="1_e52bd"]
 
-[node name="DaySummaryPanel" type="PanelContainer" unique_id=73380075 node_paths=PackedStringArray("easy_num", "normal_num", "hard_num", "easy_money", "normal_money", "hard_money", "total_money")]
+[node name="DaySummaryPanel" type="PanelContainer" unique_id=73380075 node_paths=PackedStringArray("easy_num", "normal_num", "hard_num", "easy_money", "normal_money", "hard_money", "total_money", "bank_money")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,6 +20,7 @@ easy_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContain
 normal_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2/Label2")
 hard_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3/Label2")
 total_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer5/Label2")
+bank_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer4/Label2")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=147299428]
 layout_mode = 2
