@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bot3h4ngyswtu"]
+
+[ext_resource type="Script" uid="uid://bsrmon7h4l0js" path="res://scripts/fish_easy.gd" id="1_x1fwn"]
+[ext_resource type="SpriteFrames" uid="uid://oau41gy6f6cs" path="res://assets/red_fish.tres" id="2_x1fwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(63, 19.25)
+
+[node name="FishEasy" type="Node2D" unique_id=2065414123]
+script = ExtResource("1_x1fwn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1660325061]
+position = Vector2(-3, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=25789937]
+position = Vector2(-0.5, -2.375)
+shape = SubResource("RectangleShape2D_sugp2")
+debug_color = Color(0.4887545, 0.56274337, 0.45492393, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=653468763]
+texture_filter = 1
+sprite_frames = ExtResource("2_x1fwn")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2005186020]
+offset_left = 30.0
+offset_top = -15.0
+offset_right = 34.0
+offset_bottom = 12.0
+max_value = 1.0
+value = 1.0
+fill_mode = 3
+show_percentage = false
+metadata/_edit_use_anchors_ = true

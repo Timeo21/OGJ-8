@@ -1,51 +1,31 @@
-extends Node2D
+class_name Fish extends Node2D
 
-@export var speed_angular = 1.0
-@export var speed = 2.0
-var dir = Vector2.RIGHT
-var time_elapsed =0
-@onready var animation : AnimatedSprite2D = $Area2D/AnimatedSprite2D
+@onready var area: Area2D = $Area2D
+@onready var bar: ProgressBar = $ProgressBar
 
-@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+@export var capture_speed:float = 0.1
+@export var decay_speed:float = -0.075
 
-
+var capture_progress:float
 
 
-@onready var HEIGHT = get_viewport().get_visible_rect().size.y
-@onready var WIDTH = get_viewport().get_visible_rect().size.x
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	dir = dir.rotated(randf_range(-180,180)/(180*PI) * speed_angular)
-	animation.play();
-	pass # Replace with function body.
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	handle_sprite()
-		#print("generated a new point.")
-		#dir = Vector2.from_angle(randi_range(0,360))
-		#print(point)
-	#dwprint(speed)
-	time_elapsed += delta
-	if (time_elapsed > 2.0):
-		dir = dir.rotated(randf_range(-360,360)/(180*PI) * speed_angular * delta)
-		time_elapsed =0
-	position += dir.normalized() *speed *delta
-	if (position.x < -320 +collision_shape_2d.shape.get_rect().size.x/2):
-		dir = (dir.normalized() + Vector2.RIGHT).normalized() 
-	elif (position.x>320 - collision_shape_2d.shape.get_rect().size.x/2):
-		dir = (dir.normalized() + Vector2.LEFT).normalized()
-	elif (position.y >180- collision_shape_2d.shape.get_rect().size.y/2):
-		dir = (dir.normalized() + Vector2.UP).normalized()
-	elif (position.y < -180+ collision_shape_2d.shape.get_rect().size.y/2):
-		dir = (dir.normalized() + Vector2.DOWN).normalized()
 	pass
-func handle_sprite() -> void:
-	if (dir.x < 0.2):
-		animation.flip_h = true
-	elif (dir.x > 0.2):
-		animation.flip_h = false
-		
+
+func _process(delta: float) -> void:
+	if (area.has_overlapping_areas()):
+		progress_bar(capture_speed*delta)
+	else:
+		progress_bar(decay_speed*delta)
+	pass
 	
+func progress_bar(progress_unit: float) -> void:
+	capture_progress += progress_unit
+	if capture_progress >= 1:
+		capture()
+	capture_progress = clamp(capture_progress,0,1)
+	bar.value = capture_progress
+
+func capture() -> void:
+	queue_free()
+	pass
