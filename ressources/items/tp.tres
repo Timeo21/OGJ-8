@@ -8,4 +8,5 @@ script = ExtResource("1_d5siw")
 name = "Teleport"
 id = 3
 image = ExtResource("1_lnd5q")
+price = 2
 metadata/_custom_type_script = "uid://dxnf2wjrm02"
