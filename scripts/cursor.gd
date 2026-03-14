@@ -3,6 +3,9 @@ extends Area2D
 
 enum Mode {MASH, KEEP}
 
+@onready var HEIGHT = get_viewport().get_visible_rect().size.y
+@onready var WIDTH = get_viewport().get_visible_rect().size.x
+
 @export var mul: float = 2
 @export var decel: float = 200
 @export var boost_mash: float = 200
@@ -10,6 +13,7 @@ enum Mode {MASH, KEEP}
 @export var max_speed: float = 400
 @export var speed: Vector2 = Vector2.ZERO
 @export var mode: Mode = Mode.KEEP
+@export var border_offset: float = 0
 
 func _input(event: InputEvent) -> void:
 	if mode == Mode.MASH:
@@ -31,4 +35,10 @@ func _physics_process(delta: float) -> void:
 	speed.x = clamp(speed.x, -max_speed, max_speed)
 	speed.y = clamp(speed.y, -max_speed, max_speed)
 	
+	var prev_pos: Vector2 = position
 	position += speed*delta
+	position.x = clamp(position.x, border_offset, WIDTH - border_offset)
+	position.y = clamp(position.y, border_offset, HEIGHT - border_offset)
+	
+	# so that speed at botom is 0
+	speed = (position - prev_pos) / delta 
