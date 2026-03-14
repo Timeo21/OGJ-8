@@ -44,19 +44,25 @@ func _process(delta: float) -> void:
 	if abs((position-targetP).length()) < 3:
 		timer = randf_range(3.0, 6.0)
 		targetP = Vector2(randi_range(-320, 320), randi_range(-180, 180))
-		print("new target point reached")
+		#print("new target point reached")
 	elif abs(angle) > 0.05 and timer > 0:
 		# Rotate toward target, preserving sign so it turns the right way
 		direction = direction.rotated(sign(angle) * angular_speed * delta)
 	elif timer < 0:
 		timer = randf_range(3.0, 6.0)
 		targetP = Vector2(randi_range(-320, 320), randi_range(-180, 180))
-		print("new target time out")
+		#print("new target time out")
 
 	timer -= delta
 	position += direction.normalized() * speed * delta
-	position.x = clamp(position.x, -WIDTH/2 + sprite_width/2, WIDTH/2 - sprite_width/2)
-	position.y = clamp(position.y, -HEIGHT/2 + sprite_height/2, HEIGHT/2 - sprite_height/2)
+	if (position.x < 640 +collision_shape_2d.shape.get_rect().size.x/2):
+		direction = (direction.normalized() + Vector2.RIGHT).normalized() 
+	elif (position.x>640*2 - collision_shape_2d.shape.get_rect().size.x/2):
+		direction = (direction.normalized() + Vector2.LEFT).normalized()
+	elif (position.y >360*2- collision_shape_2d.shape.get_rect().size.y/2):
+		direction = (direction.normalized() + Vector2.UP).normalized()
+	elif (position.y < 360+ collision_shape_2d.shape.get_rect().size.y/2):
+		direction = (direction.normalized() + Vector2.DOWN).normalized()
 #
 #func _draw() -> void:
 	#draw_line(Vector2.ZERO, direction.normalized() * 100, Color.RED, 1.0)

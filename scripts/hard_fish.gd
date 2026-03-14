@@ -5,6 +5,7 @@ extends Fish
 var dir = Vector2.RIGHT
 var time_elapsed =0
 @onready var animation : AnimatedSprite2D = $Area2D/AnimatedSprite2D
+var future_position = Vector2.ZERO
 
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	super._ready()
 	dir = dir.rotated(randf_range(-180,180)/(180*PI) * speed_angular)
 	animation.play();
+	future_position = position
 	pass # Replace with function body.
 	
 
@@ -31,17 +33,19 @@ func _process(delta: float) -> void:
 		#print(point)
 	#dwprint(speed)
 	time_elapsed += delta
-	if (time_elapsed > 2.0):
+	if (time_elapsed > 3.0):
 		dir = dir.rotated(randf_range(-360,360)/(180*PI) * speed_angular * delta)
+		position = future_position
+		#print(position)
 		time_elapsed =0
-	position += dir.normalized() *speed *delta
-	if (position.x < 640 +collision_shape_2d.shape.get_rect().size.x/2):
+	future_position += dir.normalized() *speed *delta
+	if (future_position.x < 640 +collision_shape_2d.shape.get_rect().size.x/2):
 		dir = (dir.normalized() + Vector2.RIGHT).normalized() 
-	elif (position.x>640*2 - collision_shape_2d.shape.get_rect().size.x/2):
+	elif (future_position.x>640*2 - collision_shape_2d.shape.get_rect().size.x/2):
 		dir = (dir.normalized() + Vector2.LEFT).normalized()
-	elif (position.y >360*2- collision_shape_2d.shape.get_rect().size.y/2):
+	elif (future_position.y >360*2- collision_shape_2d.shape.get_rect().size.y/2):
 		dir = (dir.normalized() + Vector2.UP).normalized()
-	elif (position.y < 360+ collision_shape_2d.shape.get_rect().size.y/2):
+	elif (future_position.y < 360+ collision_shape_2d.shape.get_rect().size.y/2):
 		dir = (dir.normalized() + Vector2.DOWN).normalized()
 	pass
 func handle_sprite() -> void:
