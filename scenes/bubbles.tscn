@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://d2eeqwjb4iiqv"]
+
+[ext_resource type="Texture2D" uid="uid://btl7gddtcfa3e" path="res://assets/decorations/bubbles.png" id="1_2eoim"]
+[ext_resource type="Shader" uid="uid://2kdyrypxaanr" path="res://shaders/bubbles.gdshader" id="1_gt360"]
+[ext_resource type="Script" uid="uid://d3pf1b67x360d" path="res://scenes/bubbles.gd" id="1_wdrk5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdrk5"]
+shader = ExtResource("1_gt360")
+shader_parameter/t = 0.7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt360"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdrk5"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e6an"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86n55"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7p2s"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rsqw"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcbih"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o61sm"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ydrs"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8nqn"]
+atlas = ExtResource("1_2eoim")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3u3k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt360")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdrk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e6an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86n55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7p2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rsqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcbih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o61sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ydrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8nqn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="bubbles" type="Node2D" unique_id=861841015]
+script = ExtResource("1_wdrk5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=410677457]
+material = SubResource("ShaderMaterial_wdrk5")
+sprite_frames = SubResource("SpriteFrames_e3u3k")
+frame_progress = 0.22550483
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1987139562]
+position = Vector2(0, 64)
+sprite_frames = SubResource("SpriteFrames_e3u3k")
+frame_progress = 0.5111216
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1473140542]
+position = Vector2(0, 128)
+sprite_frames = SubResource("SpriteFrames_e3u3k")
+frame_progress = 0.8181907

@@ -1,11 +1,41 @@
 [gd_scene format=3 uid="uid://bhs4pxnv1bdaf"]
 
 [ext_resource type="Script" uid="uid://muy6y0cpegrr" path="res://scripts/transition_manager.gd" id="1_nk83w"]
+[ext_resource type="Shader" uid="uid://bs2dd2a6b38cn" path="res://shaders/transition_manager.gdshader" id="2_sb1xu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t501d"]
+shader = ExtResource("2_sb1xu")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(5, 5)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/global_x_mirror = false
+shader_parameter/global_y_mirror = false
+shader_parameter/local_x_mirror = false
+shader_parameter/local_y_mirror = false
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/cumulative_stagger_flip = false
+shader_parameter/cumulative_stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(10, 10)
 
 [node name="TransitionManager" type="CanvasLayer" unique_id=1847566514]
 script = ExtResource("1_nk83w")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=729931724]
+material = SubResource("ShaderMaterial_t501d")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
