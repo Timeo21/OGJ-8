@@ -12,3 +12,4 @@ test_number = 3
 visible = false
 
 [node name="BuyPanel" parent="." unique_id=2124875960 instance=ExtResource("3_m6jnb")]
+visible = false

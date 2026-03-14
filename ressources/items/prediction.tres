@@ -8,4 +8,5 @@ script = ExtResource("1_ydlgo")
 name = "prediciton"
 id = 1
 image = ExtResource("1_obx4w")
+price = 5
 metadata/_custom_type_script = "uid://dxnf2wjrm02"

@@ -4,17 +4,49 @@ extends Panel
 @export var image1: TextureRect
 @export var image2: TextureRect
 @export var image3: TextureRect
+@export var buy1: Button
+@export var buy2: Button
+@export var buy3: Button
+@export var out_of_stock_img: Texture2D
+@export var money_label: Label
+
+@onready var images: Array[TextureRect] = [image1, image2, image3]
+@onready var buy_buttons: Array[Button] = [buy1, buy2, buy3]
+
+var to_offer: Array[Utils.ItemId]
 
 func setup_shop() -> void:
-	var to_offer := GameState.item_pool
+	to_offer = GameState.item_pool
+	print(GameState.item_pool)
 	to_offer.shuffle()
+	to_offer = to_offer.slice(0, 3)
+	
+	money_label.text = "%d🪙" % GameState.bank_money
+	
 	var db: Dictionary[Utils.ItemId, GameItem] = GameState.item_db
-	image1.texture = db[to_offer[0]].image
-	image2.texture = db[to_offer[1]].image
-	image3.texture = db[to_offer[2]].image
+	for i in range(3):
+		var item: GameItem = db[to_offer[i]]
+		images[i].texture = item.image
+		buy_buttons[i].text =  "%d🪙" % item.price
 
 func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
-	pass
+	var db: Dictionary[Utils.ItemId, GameItem] = GameState.item_db
+	print(to_offer)
+	var item: GameItem = db[to_offer[pos]]
+	if GameState.bank_money < item.price:
+		return
+	GameState.bank_money -= item.price
+	money_label.text = "%d🪙" % GameState.bank_money
+	
+	var selected: Utils.ItemId = to_offer[pos]
+	var idx: int = GameState.item_pool.find(selected)
+	GameState.item_pool.remove_at(idx)
+	GameState.owned_items.push_back(selected)
+	
+	images[pos].texture = out_of_stock_img
+	buy_buttons[pos].text =  ""
+	buy_buttons[pos].disabled = true
+	
 
 func _on_button_left_pressed() -> void:
 	process_buy_press(Utils.BuyButtonPostion.LEFT)

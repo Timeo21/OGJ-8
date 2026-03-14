@@ -1,16 +1,16 @@
 extends Node
 
 var owned_items: Array[Utils.ItemId] = []
-@onready var item_pool: Array[Utils.ItemId] = load_item_pool()
 var bank_money: int = 0 
+@onready var item_pool: Array[Utils.ItemId] = load_item_pool()
 @onready var item_db: Dictionary[Utils.ItemId, GameItem] = load_resources_indexed_by_property("res://ressources/items/")
 
 func load_item_pool() -> Array[Utils.ItemId]:
-	var item_pool: Array[Utils.ItemId] = []
+	var pool: Array[Utils.ItemId] = []
 
 	for v in Utils.ItemId.values():
-		item_pool.append(v)
-	return item_pool
+		pool.append(v)
+	return pool
 
 func load_resources_indexed_by_property(path: String) -> Dictionary[Utils.ItemId, GameItem]:
 	var result: Dictionary[Utils.ItemId, GameItem] = {}
