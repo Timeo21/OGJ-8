@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d0s7d0ablsb5t"]
+[gd_scene format=3 uid="uid://bvnangrlj4kax"]
 
 [ext_resource type="Script" uid="uid://bs0tj5tx0y83n" path="res://scripts/cursor.gd" id="1_s0nli"]
 [ext_resource type="Texture2D" uid="uid://1qhlfwl0juc5" path="res://assets/icon.svg" id="2_ndevg"]
@@ -7,19 +7,14 @@
 size = Vector2(127, 127)
 
 [node name="Cursor" type="Area2D" unique_id=29777647]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_s0nli")
-mul = null
-decel = null
-boost_mash = null
-boost_keep = null
-max_speed = null
-speed = null
-mode = null
-border_offset = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2009491443]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_ndevg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=359013327]
 position = Vector2(-0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 shape = SubResource("RectangleShape2D_n5qf0")
