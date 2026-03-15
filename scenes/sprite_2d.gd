@@ -13,6 +13,8 @@ extends Sprite2D
 @onready var panel_9: Panel = $Panel9
 @onready var panel_10: Panel = $Panel10
 @onready var panel_11: Panel = $Panel11
+@onready var panel_12: Panel = $Panel12
+@onready var panel_13: Panel = $Panel13
 
 var timer: float
 var timer1: float
@@ -20,7 +22,13 @@ var timer1: float
 func _ready() -> void:
 	pass
 	
+func skipCin() -> void:
+	pass
+	
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		timer += 99
+		timer1 += 99
 	if GameState.day_counter == 0:
 		panel.visible = true 
 		timer = delta + timer
@@ -70,4 +78,15 @@ func _process(delta: float) -> void:
 					timer1 = delta + timer1
 					if timer1 >= 9:
 						TransitionPlayer.change_scene("res://scenes/main.tscn")
+	if GameState.day_counter == 4:
+		timer = timer + delta
+		panel_12 .visible = true
+		if timer >= 4:
+			panel_12.visible = false
+			panel_13.visible = true
+			timer = timer + delta
+			if timer >= 9 :
+				TransitionPlayer.change_scene("res://scenes/end.tscn")
+				
 	pass
+	

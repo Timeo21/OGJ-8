@@ -140,10 +140,10 @@ fine in my house."
 
 [node name="Panel9" type="Panel" parent="Sprite2D" unique_id=630944211]
 visible = false
-offset_left = -129.0
-offset_top = -73.0
-offset_right = 14.0
-offset_bottom = -21.0
+offset_left = -249.0
+offset_top = -104.0
+offset_right = -106.0
+offset_bottom = -28.0
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Sprite2D/Panel9" unique_id=336616234]
@@ -152,7 +152,8 @@ offset_left = 3.0
 offset_top = -2.0
 offset_right = 141.0
 offset_bottom = 47.0
-text = "You ? Here ?! How 
+text = "Timeo ? You
+here ?! How 
 is it possible ?!"
 
 [node name="Panel10" type="Panel" parent="Sprite2D" unique_id=1810071515]
@@ -187,8 +188,37 @@ offset_bottom = 58.0
 text = "I shall accept your 
 challenge."
 
+[node name="Panel12" type="Panel" parent="Sprite2D" unique_id=399968377]
+visible = false
+offset_left = -301.0
+offset_top = -73.0
+offset_right = -69.0
+offset_bottom = -20.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Sprite2D/Panel12" unique_id=1088660856]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Maintenant que je t'ai vaincu 
+je peux enfin être libre !"
+
+[node name="Panel13" type="Panel" parent="Sprite2D" unique_id=1983646381]
+visible = false
+offset_left = -264.0
+offset_top = -54.0
+offset_right = -118.0
+offset_bottom = -18.0
+
+[node name="Label" type="Label" parent="Sprite2D/Panel13" unique_id=606307814]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Merci d'avoir joué"
+
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1171947338]
 visible = false
-position = Vector2(447, 204)
+position = Vector2(567, 213)
+scale = Vector2(2.265625, 2.3203125)
 texture = ExtResource("3_oayi1")
 flip_h = true

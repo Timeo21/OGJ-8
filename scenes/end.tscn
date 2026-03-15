@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://baf1otoof8a7p"]
+
+[ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_beduj"]
+[ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_wabui"]
+[ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_ea6qb"]
+[ext_resource type="Texture2D" uid="uid://bi6vll0nu8e8c" path="res://assets/Line_Throw_Sheet.png" id="4_0xf44"]
+[ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="5_qhmma"]
+[ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="6_ypq80"]
+[ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="7_3gs2s"]
+[ext_resource type="FontFile" uid="uid://cpowng7meuxtg" path="res://assets/fonts/Mantinia Regular.otf" id="8_ner4h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
+atlas = ExtResource("4_0xf44")
+region = Rect2(0, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hq0q"]
+atlas = ExtResource("4_0xf44")
+region = Rect2(480, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyub0"]
+atlas = ExtResource("4_0xf44")
+region = Rect2(960, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag3va"]
+atlas = ExtResource("4_0xf44")
+region = Rect2(1440, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eea3"]
+atlas = ExtResource("4_0xf44")
+region = Rect2(1920, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ep3"]
+atlas = ExtResource("4_0xf44")
+region = Rect2(2400, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayr21"]
+atlas = ExtResource("4_0xf44")
+region = Rect2(2880, 0, 480, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_206a3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6jnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hq0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyub0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag3va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ep3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayr21")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Fin" type="Node2D" unique_id=1068468895]
+
+[node name="Visuals" type="Node" parent="." unique_id=1692663743]
+
+[node name="BigBackground" type="Sprite2D" parent="Visuals" unique_id=1993968012]
+position = Vector2(640, 360)
+texture = ExtResource("1_beduj")
+
+[node name="Fisherman" type="AnimatedSprite2D" parent="Visuals" unique_id=893344047]
+visible = false
+position = Vector2(270, 100)
+sprite_frames = ExtResource("2_wabui")
+animation = &"Title_Animation"
+script = ExtResource("3_ea6qb")
+title = true
+
+[node name="Line" type="AnimatedSprite2D" parent="Visuals/Fisherman" unique_id=480209100]
+visible = false
+position = Vector2(271, -18)
+sprite_frames = SubResource("SpriteFrames_206a3")
+
+[node name="Boat" type="Sprite2D" parent="Visuals" unique_id=993035128]
+position = Vector2(188, 169)
+texture = ExtResource("5_qhmma")
+
+[node name="Bubbles" type="Node" parent="Visuals" unique_id=72541165]
+
+[node name="bubbles" parent="Visuals/Bubbles" unique_id=861841015 instance=ExtResource("6_ypq80")]
+position = Vector2(28, 264)
+scale = Vector2(0.5, 0.5)
+
+[node name="bubbles2" parent="Visuals/Bubbles" unique_id=1870652786 instance=ExtResource("6_ypq80")]
+position = Vector2(228, 264)
+scale = Vector2(0.5, 0.5)
+
+[node name="bubbles3" parent="Visuals/Bubbles" unique_id=616971350 instance=ExtResource("6_ypq80")]
+position = Vector2(305, 253)
+scale = Vector2(0.5, 0.5)
+
+[node name="Waves" type="Node" parent="Visuals" unique_id=1702747907]
+
+[node name="Wave" parent="Visuals/Waves" unique_id=1212107676 instance=ExtResource("7_3gs2s")]
+position = Vector2(355, 157)
+
+[node name="Wave2" parent="Visuals/Waves" unique_id=111090987 instance=ExtResource("7_3gs2s")]
+position = Vector2(467, 158)
+
+[node name="Wave3" parent="Visuals/Waves" unique_id=1279978748 instance=ExtResource("7_3gs2s")]
+position = Vector2(607, 156)
+
+[node name="Label" type="Label" parent="Visuals" unique_id=670532050]
+offset_left = 127.0
+offset_top = 15.0
+offset_right = 313.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("8_ner4h")
+theme_override_font_sizes/font_size = 53
+text = "The 
+     End "
