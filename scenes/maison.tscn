@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0rh1pdorbbgn"]
 
-[ext_resource type="Texture2D" uid="uid://d3x2qthwwq1fi" path="res://assets/Maison.png" id="1_usia5"]
+[ext_resource type="Texture2D" uid="uid://dn7u6odagacfe" path="res://scenes/Maisonpng.png" id="1_oayi1"]
 [ext_resource type="Script" uid="uid://ndi6tvtjyhdg" path="res://scenes/sprite_2d.gd" id="2_kihby"]
 [ext_resource type="Texture2D" uid="uid://ox7o0v6h6iyc" path="res://assets/pecheurPêche1.png" id="3_oayi1"]
 
@@ -8,7 +8,7 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1196569342]
 position = Vector2(322, 180)
-texture = ExtResource("1_usia5")
+texture = ExtResource("1_oayi1")
 script = ExtResource("2_kihby")
 
 [node name="Panel" type="Panel" parent="Sprite2D" unique_id=1912231696]
@@ -132,7 +132,6 @@ offset_bottom = -17.0
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Sprite2D/Panel8" unique_id=1172886034]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -148,7 +147,6 @@ offset_bottom = -21.0
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Sprite2D/Panel9" unique_id=336616234]
-visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = -2.0
