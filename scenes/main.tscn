@@ -6,15 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="2_a8y0u"]
 [ext_resource type="Theme" uid="uid://be471ov2oduy2" path="res://ressources/main_theme.tres" id="2_jbj1t"]
 [ext_resource type="FontFile" uid="uid://b6tn6xiqof0rm" path="res://assets/fonts/Titan_One/TitanOne-Regular.ttf" id="2_jkv2x"]
+[ext_resource type="Resource" uid="uid://dnv34xieqh14q" path="res://ressources/level_list.tres" id="2_muem4"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
+[ext_resource type="Script" uid="uid://cw6vtv4a5njlv" path="res://scripts/directory.gd" id="3_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://bvnangrlj4kax" path="res://scenes/cursor.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://bi6vll0nu8e8c" path="res://assets/Line_Throw_Sheet.png" id="4_trceg"]
-[ext_resource type="PackedScene" uid="uid://c5xawcrwvcw7m" path="res://scenes/fish_normal.tscn" id="6_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="7_tipki"]
-[ext_resource type="PackedScene" uid="uid://ctn57t3f21df" path="res://scenes/hard_fish.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="13_trceg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_trceg"]
@@ -78,14 +77,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Main" type="Node" unique_id=2076612375 node_paths=PackedStringArray("time_label", "camera_2d", "menu_ui", "game_ui", "cursor")]
+[node name="Main" type="Node" unique_id=2076612375 node_paths=PackedStringArray("time_label", "camera_2d", "menu_ui", "game_ui", "fish_root", "cursor", "fish_spawners")]
 script = ExtResource("1_trceg")
 time_label = NodePath("UI/Control/Game UI/Label")
 camera_2d = NodePath("Gameplay/Camera2D")
 menu_ui = NodePath("UI/Control/Menu UI")
 game_ui = NodePath("UI/Control/Game UI")
+fish_root = NodePath("Gameplay")
 cursor = NodePath("Gameplay/Cursor")
-time = 2.825
+level_list = ExtResource("2_muem4")
+fish_spawners = NodePath("Gameplay/Markers/FishSpawners")
+
+[node name="Directory" type="Node" parent="." unique_id=627397442 node_paths=PackedStringArray("top_left_maker", "bot_right_maker")]
+script = ExtResource("3_jkv2x")
+top_left_maker = NodePath("../Gameplay/Markers/Border/TopLeftMarker")
+bot_right_maker = NodePath("../Gameplay/Markers/Border/BotRightMarker")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1388712454]
 
@@ -236,16 +242,6 @@ script = ExtResource("1_o5qli")
 visible = false
 position = Vector2(649, 237)
 
-[node name="FishNormal" parent="Gameplay" unique_id=2065414123 instance=ExtResource("6_o6xl0")]
-position = Vector2(817, 328)
-base_speed = 100.0
-
-[node name="FishEasy" parent="Gameplay" unique_id=649289354 instance=ExtResource("7_tipki")]
-position = Vector2(542, 399)
-
-[node name="HardFish" parent="Gameplay" unique_id=900989302 instance=ExtResource("8_tipki")]
-position = Vector2(778, 467)
-
 [node name="Markers" type="Node" parent="Gameplay" unique_id=555657206]
 
 [node name="Camera" type="Node" parent="Gameplay/Markers" unique_id=1508255614]
@@ -253,6 +249,8 @@ position = Vector2(778, 467)
 [node name="CameraMenu" type="Marker2D" parent="Gameplay/Markers/Camera" unique_id=138323782]
 unique_name_in_owner = true
 position = Vector2(323, 183)
+
+[node name="FishRoot" type="Node" parent="Gameplay/Markers/Camera" unique_id=1579415648]
 
 [node name="CameraGame" type="Marker2D" parent="Gameplay/Markers/Camera" unique_id=1192370895]
 unique_name_in_owner = true

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://pbrkihmo0qte"]
+
+[ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="1_52tvu"]
+[ext_resource type="PackedScene" uid="uid://c5xawcrwvcw7m" path="res://scenes/fish_normal.tscn" id="2_hqt8u"]
+[ext_resource type="PackedScene" uid="uid://ctn57t3f21df" path="res://scenes/hard_fish.tscn" id="3_h2cbv"]
+
+[node name="Level3" type="Node" unique_id=1446676918]
+
+[node name="FishEasy" parent="." unique_id=2065414123 instance=ExtResource("1_52tvu")]
+position = Vector2(328, 107)
+
+[node name="FishEasy2" parent="." unique_id=1049370879 instance=ExtResource("1_52tvu")]
+position = Vector2(158, 139)
+
+[node name="FishNormal" parent="." unique_id=786979257 instance=ExtResource("2_hqt8u")]
+position = Vector2(355, 220)
+base_speed = 100.0
+
+[node name="HardFish" parent="." unique_id=900989302 instance=ExtResource("3_h2cbv")]
+position = Vector2(175, 235)

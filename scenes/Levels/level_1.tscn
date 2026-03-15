@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://nukif6xvfyrw"]
+
+[ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="1_ptgt0"]
+
+[node name="Level1" type="Node2D" unique_id=413140404]
+
+[node name="FishEasy" parent="." unique_id=2065414123 instance=ExtResource("1_ptgt0")]
+position = Vector2(194, 101)
+
+[node name="FishEasy2" parent="." unique_id=1758554962 instance=ExtResource("1_ptgt0")]
+position = Vector2(74, 196)
+
+[node name="FishEasy3" parent="." unique_id=1068748903 instance=ExtResource("1_ptgt0")]
+position = Vector2(279, 170)
+
+[node name="FishEasy4" parent="." unique_id=1817418538 instance=ExtResource("1_ptgt0")]
+position = Vector2(418, 222)

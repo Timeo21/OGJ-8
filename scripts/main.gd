@@ -5,8 +5,11 @@ extends Node
 @export var camera_2d: Camera2D
 @export var menu_ui: Control
 @export var game_ui: Control
+@export var fish_root: Node
 @export var cursor: Cursor
 @export var hook_fade_time: float =  1.0
+@export var level_list: LevelList
+@export var fish_spawners: Node
 
 var time_left: float
 @export var time: float = 40
@@ -16,6 +19,14 @@ var fishing: bool = false
 func _ready() -> void:
 	camera_2d.on_reach_game_pos.connect(func(): start_timer())
 	camera_2d.on_reach_menu_pos.connect(func(): open_summary())
+	var fishes: Node = level_list.levels[GameState.day_counter].instantiate() as Node
+	for f in fishes.get_children():
+		var fish: Fish = f as Fish
+		fishes.remove_child(fish)
+		fish_root.add_child(fish)
+		fish.position = (fish_spawners.get_children().pick_random() as Marker2D).position
+		
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
