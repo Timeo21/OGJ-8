@@ -35,4 +35,5 @@ func display_day_summary(day_summary: DaySummary) -> void:
 
 
 func _on_button_pressed() -> void:
+	SignalBus.button_clicked.emit()
 	day_summary_next.emit()

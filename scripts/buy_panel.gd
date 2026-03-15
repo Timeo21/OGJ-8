@@ -31,6 +31,7 @@ func setup_shop() -> void:
 		buy_buttons[i].text =  "%d🪙" % item.price
 
 func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
+	SignalBus.button_clicked.emit()
 	var db: Dictionary[Utils.ItemId, GameItem] = GameState.item_db
 	var item: GameItem = db[to_offer[pos]]
 	if GameState.bank_money < item.price:
@@ -45,7 +46,7 @@ func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
 	SignalBus.items_updated.emit()
 	
 	images[pos].texture = out_of_stock_img
-	buy_buttons[pos].text =  "-"
+	buy_buttons[pos].text =  ""
 	buy_buttons[pos].disabled = true
 	
 
@@ -60,4 +61,5 @@ func _on_button_right_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
+	SignalBus.button_clicked.emit()
 	buy_panel_next.emit()

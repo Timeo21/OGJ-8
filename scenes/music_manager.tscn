@@ -2,13 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bw1b425yyfk05" path="res://scripts/singletons/music_manager.gd" id="1_hetdf"]
 [ext_resource type="AudioStream" uid="uid://w5fwieum7afd" path="res://assets/musics/gamejam1.mp3" id="1_tn5dr"]
+[ext_resource type="AudioStream" uid="uid://b60acskqmnhsu" path="res://assets/sfx/kenney_ui-audio/Audio/click3.ogg" id="3_jd6i5"]
 
-[node name="MusicManager" type="Node" unique_id=891249277 node_paths=PackedStringArray("audio_player")]
+[node name="MusicManager" type="Node" unique_id=891249277 node_paths=PackedStringArray("audio_player", "click_player")]
 script = ExtResource("1_hetdf")
-audio_player = NodePath("AudioStreamPlayer")
+audio_player = NodePath("MusicPlayer")
+click_player = NodePath("ClickPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=112407816]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=112407816]
 stream = ExtResource("1_tn5dr")
 autoplay = true
 
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=604848788]
+stream = ExtResource("3_jd6i5")
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_audio_stream_player_finished"]
