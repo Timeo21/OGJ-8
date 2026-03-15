@@ -8,15 +8,13 @@ extends Node
 @onready var game_ui: Control = $"UI/Game UI"
 
 var time_left: float
-var time: float = 40
+@export var time: float = 40
 var fishing: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	camera_2d.on_reach_game_pos.connect(func(): start_timer())
 	camera_2d.on_reach_menu_pos.connect(func(): open_summary())
-	SignalBus.fish_caugth.connect(_on_fish_caugth)
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,9 +31,8 @@ func _process(delta: float) -> void:
 	pass
 
 func open_summary() -> void:
-	_on_back_to_menu()
-	pass
-
+	TransitionPlayer.change_scene("res://scenes/shop.tscn")
+	
 func _on_back_to_menu() -> void:
 	menu_ui.visible = true
 	game_ui.visible = false
@@ -50,9 +47,6 @@ func start_timer() -> void:
 	fishing = true
 	time_left = time
 	
-func _on_fish_caugth(money: int):
-	GameState.bank_money += money
-
 func days_end() -> void:
 	fishing = false
 

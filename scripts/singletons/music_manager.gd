@@ -6,7 +6,7 @@ extends Node
 func _on_audio_stream_player_finished() -> void:
 	audio_player.play(21.883)
 
-func _init() -> void:
+func _ready() -> void:
 	SignalBus.button_clicked.connect(play_click)
 	
 func play_click() -> void:

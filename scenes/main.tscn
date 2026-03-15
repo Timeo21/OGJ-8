@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b2uoh7rwwhg1" path="res://scripts/camera_2d.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://bpr16eerg5ei7" path="res://scripts/main.gd" id="1_trceg"]
+[ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="2_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
@@ -75,6 +76,7 @@ animations = [{
 
 [node name="Main" type="Node" unique_id=2076612375]
 script = ExtResource("1_trceg")
+time = 38.355
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1388712454]
 
@@ -103,12 +105,6 @@ grow_vertical = 2
 text = "Go
 Fishing"
 
-[node name="MoneyLabel" type="Label" parent="UI/Menu UI" unique_id=1941556402]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Money:"
-
 [node name="Game UI" type="Control" parent="UI" unique_id=57630753]
 visible = false
 layout_mode = 3
@@ -129,6 +125,22 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "Time Left : 6:07"
 label_settings = SubResource("LabelSettings_trceg")
+
+[node name="PersistentUI" type="Control" parent="UI" unique_id=972850017]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemOverlay" parent="UI/PersistentUI" unique_id=1326312432 instance=ExtResource("2_a8y0u")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Visuals" type="Node" parent="." unique_id=505781156]
 
@@ -193,15 +205,12 @@ position = Vector2(649, 237)
 
 [node name="FishNormal" parent="Gameplay" unique_id=2065414123 instance=ExtResource("6_o6xl0")]
 position = Vector2(817, 328)
-value = 3
 
 [node name="FishEasy" parent="Gameplay" unique_id=649289354 instance=ExtResource("7_tipki")]
 position = Vector2(542, 399)
-value = 2
 
 [node name="HardFish" parent="Gameplay" unique_id=900989302 instance=ExtResource("8_tipki")]
 position = Vector2(778, 467)
-value = 4
 
 [node name="Markers" type="Node" parent="Gameplay" unique_id=555657206]
 

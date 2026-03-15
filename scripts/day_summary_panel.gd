@@ -30,8 +30,9 @@ func display_day_summary(day_summary: DaySummary) -> void:
 	
 	bank_money.text = "%d🪙" % GameState.bank_money
 	
-	var tot := v1+v2+v3
+	var tot := v1+v2+v3+GameState.bank_money
 	total_money.text = "%d🪙" % tot
+	GameState.bank_money = tot
 
 
 func _on_button_pressed() -> void:

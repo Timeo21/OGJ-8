@@ -2,8 +2,16 @@ extends Node
 
 var owned_items: Array[Utils.ItemId] = []
 var bank_money: int = 0 
+var summary: DaySummary = DaySummary.new(0, 0, 0)
 @onready var item_pool: Array[Utils.ItemId] = load_item_pool()
 @onready var item_db: Dictionary[Utils.ItemId, GameItem] = load_resources_indexed_by_property("res://ressources/items/")
+
+func _ready() -> void:
+	SignalBus.fish_caugth.connect(update_summary)
+	
+func update_summary(type: Utils.FishType) -> void:
+	print("summary listening to capture")
+	summary = summary.increment_specific(type)
 
 func load_item_pool() -> Array[Utils.ItemId]:
 	var pool: Array[Utils.ItemId] = []

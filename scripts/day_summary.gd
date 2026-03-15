@@ -31,3 +31,10 @@ func increment_hard() -> DaySummary:
 		normal_fish_number,
 		hard_fish_number + 1
 	)
+	
+func increment_specific(type: Utils.FishType) -> DaySummary:
+	if type == Utils.FishType.EASY:
+		return increment_easy()
+	if type == Utils.FishType.NORMAL:
+		return increment_normal()
+	return increment_hard()

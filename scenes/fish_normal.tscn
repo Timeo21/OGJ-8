@@ -69,6 +69,7 @@ script = ExtResource("2_86irj")
 speed_angular = 50.0
 speed = 100.0
 decay_speed = -1.0
+fish_type = 1
 
 [node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1660325061) index="0" unique_id=25789937]
 position = Vector2(3, 1)

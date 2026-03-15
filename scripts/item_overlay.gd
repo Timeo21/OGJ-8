@@ -3,8 +3,9 @@ extends Control
 @export var item_container_scene: PackedScene
 @export var item_stacker: HBoxContainer
 
-func _init() -> void:
+func _ready() -> void:
 	SignalBus.items_updated.connect(load_overlay)
+	load_overlay()
 	
 func load_overlay() -> void:
 	for n in item_stacker.get_children():
@@ -17,7 +18,3 @@ func load_overlay() -> void:
 		var new_container: ItemContainer = item_container_scene.instantiate() as ItemContainer
 		item_stacker.add_child(new_container)
 		new_container.get_texture().texture = game_item.image
-
-
-func _on_timer_timeout() -> void:
-	load_overlay()
