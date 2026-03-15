@@ -67,6 +67,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1" unique_id=1861644331]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+tooltip_text = "Do you see me?"
 texture = ExtResource("2_uyl20")
 
 [node name="ButtonLeft" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1" unique_id=1911912965]

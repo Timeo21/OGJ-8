@@ -8,4 +8,5 @@ script = ExtResource("1_d0mkl")
 name = "Slow"
 image = ExtResource("1_noueo")
 price = 6
+tooltip = "Slows down fishes"
 metadata/_custom_type_script = "uid://dxnf2wjrm02"

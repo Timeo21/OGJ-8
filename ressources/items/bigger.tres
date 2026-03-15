@@ -9,4 +9,5 @@ name = "Bigger"
 id = 6
 image = ExtResource("1_qp6yc")
 price = 3
+tooltip = "Increases the size of your hook"
 metadata/_custom_type_script = "uid://dxnf2wjrm02"
