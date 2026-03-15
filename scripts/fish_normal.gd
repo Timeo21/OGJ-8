@@ -2,7 +2,6 @@ extends Fish
 
 @export var speed_angular = 50.0
 @export var speed = 100.0
-var dir = Vector2.RIGHT
 var time_elapsed =0
 @onready var animation : AnimatedSprite2D = $Area2D/AnimatedSprite2D
 
@@ -35,14 +34,6 @@ func _process(delta: float) -> void:
 		dir = dir.rotated(randf_range(-360,360)/(180*PI) * speed_angular * delta)
 		time_elapsed =0
 	position += dir.normalized() *speed *delta
-	if (position.x < -320 +collision_shape_2d.shape.get_rect().size.x/2):
-		dir = (dir.normalized() + Vector2.RIGHT).normalized() 
-	elif (position.x>320 - collision_shape_2d.shape.get_rect().size.x/2):
-		dir = (dir.normalized() + Vector2.LEFT).normalized()
-	elif (position.y >180- collision_shape_2d.shape.get_rect().size.y/2):
-		dir = (dir.normalized() + Vector2.UP).normalized()
-	elif (position.y < -180+ collision_shape_2d.shape.get_rect().size.y/2):
-		dir = (dir.normalized() + Vector2.DOWN).normalized()
 	pass
 func handle_sprite() -> void:
 	if (dir.x < 0.2):

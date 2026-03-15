@@ -3,8 +3,10 @@ extends Area2D
 
 enum Mode {MASH, KEEP}
 
-@onready var HEIGHT = get_viewport().get_visible_rect().size.y
-@onready var WIDTH = get_viewport().get_visible_rect().size.x
+var top_left_pos: Vector2
+var bot_right_pos: Vector2
+
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 @export var mul: float = 2
 @export var decel: float = 200
@@ -14,6 +16,14 @@ enum Mode {MASH, KEEP}
 @export var speed: Vector2 = Vector2.ZERO
 @export var mode: Mode = Mode.KEEP
 @export var border_offset: float = 0
+
+func _ready() -> void:
+	var marker: Marker2D = %TopLeftMarker
+	top_left_pos = marker.position
+	marker = %BotRightMarker
+	bot_right_pos = marker.position
+	pass
+	pass
 
 func _input(event: InputEvent) -> void:
 	if mode == Mode.MASH:
@@ -37,8 +47,9 @@ func _physics_process(delta: float) -> void:
 	
 	var prev_pos: Vector2 = position
 	position += speed*delta
-	position.x = clamp(position.x, -WIDTH/2 - border_offset, WIDTH/2 - border_offset)
-	position.y = clamp(position.y, -HEIGHT/2 - border_offset, HEIGHT/2 - border_offset)
+	print(collision_shape.shape.get_rect().size.x/2)
+	position.x = clamp(position.x, top_left_pos.x + collision_shape.shape.get_rect().size.x/2,bot_right_pos.x - collision_shape.shape.get_rect().size.x/2)
+	position.y = clamp(position.y, top_left_pos.y + collision_shape.shape.get_rect().size.y/2,bot_right_pos.y - collision_shape.shape.get_rect().size.y/2)
 	
 	# so that speed at botom is 0
 	speed = (position - prev_pos) / delta 

@@ -3,6 +3,10 @@ extends Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var topLeft = position - get_viewport_rect().size / 2
+	var botRight = position + get_viewport_rect().size / 2
+	print(topLeft)
+	print(botRight)
 	pass # Replace with function body.
 
 
