@@ -9,4 +9,5 @@ name = "Mash"
 id = 7
 image = ExtResource("1_2ky47")
 price = 1
+tooltip = "Switch input mode to mashing instead of holding"
 metadata/_custom_type_script = "uid://dxnf2wjrm02"

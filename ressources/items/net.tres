@@ -9,4 +9,5 @@ name = "Net"
 id = 5
 image = ExtResource("1_h5wb8")
 price = 3
+tooltip = "Decreases the time required to catch a fish"
 metadata/_custom_type_script = "uid://dxnf2wjrm02"

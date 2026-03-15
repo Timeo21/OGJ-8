@@ -18,3 +18,4 @@ func load_overlay() -> void:
 		var new_container: ItemContainer = item_container_scene.instantiate() as ItemContainer
 		item_stacker.add_child(new_container)
 		new_container.get_texture().texture = game_item.image
+		new_container.get_texture().tooltip_text = game_item.tooltip

@@ -9,4 +9,5 @@ name = "Freeze"
 id = 2
 image = ExtResource("1_7imyc")
 price = 7
+tooltip = "Freeze the fishes"
 metadata/_custom_type_script = "uid://dxnf2wjrm02"
