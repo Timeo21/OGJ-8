@@ -8,6 +8,7 @@ extends Node
 func _ready() -> void:
 	print("in tester")
 	if test_number == 1:
+		print("looking at db")
 		var db := GameState.item_db
 		for i in db:
 			print(db[i].name)

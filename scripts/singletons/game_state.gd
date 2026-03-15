@@ -18,7 +18,8 @@ func load_item_pool() -> Array[Utils.ItemId]:
 	var pool: Array[Utils.ItemId] = []
 
 	for v in Utils.ItemId.values():
-		pool.append(v)
+		if v != Utils.ItemId.NOTHING_LEFT:
+			pool.append(v)
 	return pool
 
 func load_resources_indexed_by_property(path: String) -> Dictionary[Utils.ItemId, GameItem]:
@@ -38,7 +39,8 @@ func load_resources_indexed_by_property(path: String) -> Dictionary[Utils.ItemId
 				var res: GameItem = load(path + "/" + file_name)
 				if res != null:
 					var key = res.id
-					result[key] = res
+					if key != Utils.ItemId.NOTHING_LEFT:
+						result[key] = res
 		
 		file_name = dir.get_next()
 	

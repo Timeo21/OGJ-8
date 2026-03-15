@@ -23,6 +23,7 @@ func setup_shop() -> void:
 	to_offer.shuffle()
 	to_offer = to_offer.slice(0, 3)
 	
+	print("number of items: %d" % to_offer.size())
 	while to_offer.size() < 3:
 		to_offer.push_back(Utils.ItemId.NOTHING_LEFT)
 	money_label.text = "%d🪙" % GameState.bank_money
