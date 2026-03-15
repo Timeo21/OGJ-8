@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://6ahd1t42b8sd"]
 
-[ext_resource type="Script" uid="uid://cuicj3e1jp8ah" path="res://scripts/tester.gd" id="1_mnnv6"]
-[ext_resource type="PackedScene" uid="uid://cr0l7sl7l4gtu" path="res://scenes/day_summary_panel.tscn" id="2_qt16s"]
-[ext_resource type="PackedScene" uid="uid://dot5nw3cee6xr" path="res://scenes/buy_panel.tscn" id="3_m6jnb"]
+[ext_resource type="Script" path="res://scripts/tester.gd" id="1_mnnv6"]
+[ext_resource type="PackedScene" path="res://scenes/day_summary_panel.tscn" id="2_qt16s"]
+[ext_resource type="PackedScene" path="res://scenes/buy_panel.tscn" id="3_m6jnb"]
 [ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="4_0hq0q"]
 
 [node name="Tester" type="Node" unique_id=90102652]

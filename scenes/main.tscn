@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
-[ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scenes/fisherman.gd" id="3_eb6dy"]
+[ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bvnangrlj4kax" path="res://scenes/cursor.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://bi6vll0nu8e8c" path="res://assets/Line_Throw_Sheet.png" id="4_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5xawcrwvcw7m" path="res://scenes/fish_normal.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" path="res://scenes/hard_fish.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="13_trceg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
 atlas = ExtResource("4_trceg")
@@ -105,12 +106,35 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(305, 253)
 scale = Vector2(0.5, 0.5)
 
+[node name="Waves" type="Node" parent="Visuals" unique_id=343645996]
+
+[node name="Wave" parent="Visuals/Waves" unique_id=1212107676 instance=ExtResource("13_trceg")]
+position = Vector2(355, 157)
+
+[node name="Wave2" parent="Visuals/Waves" unique_id=365280924 instance=ExtResource("13_trceg")]
+position = Vector2(467, 158)
+
+[node name="Wave3" parent="Visuals/Waves" unique_id=657823490 instance=ExtResource("13_trceg")]
+position = Vector2(607, 156)
+
 [node name="Gameplay" type="Node" parent="." unique_id=258947638]
 
 [node name="Camera2D" type="Camera2D" parent="Gameplay" unique_id=1904801016]
 show_behind_parent = true
 top_level = true
 position = Vector2(694, 378)
+enabled = false
+limit_enabled = false
+limit_left = -340
+limit_top = -180
+limit_right = 320
+limit_bottom = 180
+script = ExtResource("1_o5qli")
+
+[node name="Test" type="Camera2D" parent="Gameplay" unique_id=466596288]
+show_behind_parent = true
+top_level = true
+position = Vector2(320, 180)
 limit_enabled = false
 limit_left = -340
 limit_top = -180

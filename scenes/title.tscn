@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://byxrepikryhpo"]
+
+[ext_resource type="Script" uid="uid://cnt8r255emko8" path="res://scripts/game_manager.gd" id="1_4ignj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvspv"]
+line_spacing = 4.57
+font_size = 28
+
+[node name="Title" type="Control" unique_id=1765425426]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ignj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1226387094]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -20.0
+offset_right = 20.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=147481298]
+layout_mode = 2
+text = "Game Fishing Game Simulator Game"
+label_settings = SubResource("LabelSettings_pvspv")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=2018099680]
+custom_minimum_size = Vector2(0, 54.145)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=682207274]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
