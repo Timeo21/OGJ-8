@@ -9,6 +9,7 @@ var bot_right_pos: Vector2
 var closest_position = Vector2.DOWN *100000
 var lowest_dist =100000.0
 var time_spent =0
+var aimbot_factor = 4.0
 
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -32,7 +33,8 @@ func _ready() -> void:
 	top_left_pos = marker.position
 	marker = %BotRightMarker
 	bot_right_pos = marker.position
-	pass
+	hook_bigger()
+	mash()
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -69,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	if (time_spent >= 5):
 		tp_to_closest()
 		time_spent =0
-	
+	aimbot()
 func get_max_speed() -> float:
 	if GameState.isItemOwned(Utils.ItemId.FAST):
 		return fast_multiplier*base_max_speed
@@ -87,5 +89,22 @@ func tp_to_closest() -> void:
 		lowest_dist = 1000000.0
 	pass
 	
-
+func hook_bigger() -> void:
+	if GameState.isItemOwned(Utils.ItemId.BIGGER):
+		scale*=2
+		
+func mash() -> void :
+	if GameState.isItemOwned(Utils.ItemId.MASH):
+			mode = Mode.MASH
 	
+func aimbot() -> void:
+	if GameState.isItemOwned(Utils.ItemId.AIM):
+		for fish in dir.fishes:
+			if position.distance_to(fish.position) < lowest_dist:
+				closest_position = fish.position
+				lowest_dist =position.distance_to(fish.position)
+		lowest_dist = 10000.0
+		speed.x += position.direction_to(closest_position).x * aimbot_factor
+		speed.y += position.direction_to(closest_position).y * aimbot_factor
+		closest_position = Vector2.DOWN *100000
+		
