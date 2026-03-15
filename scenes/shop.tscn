@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bth3r3oxdsw0t"]
 
 [ext_resource type="Script" uid="uid://b2rcxd26qte3" path="res://scripts/shop.gd" id="1_1l46r"]
+[ext_resource type="Theme" uid="uid://be471ov2oduy2" path="res://ressources/main_theme.tres" id="1_2fc2m"]
 [ext_resource type="PackedScene" uid="uid://cr0l7sl7l4gtu" path="res://scenes/day_summary_panel.tscn" id="1_lx5au"]
+[ext_resource type="Texture2D" uid="uid://dsmn2qbkoicpk" path="res://assets/decorations/background.png" id="2_032fp"]
 [ext_resource type="PackedScene" uid="uid://dot5nw3cee6xr" path="res://scenes/buy_panel.tscn" id="2_xfvoa"]
 
 [node name="Shop" type="Control" unique_id=1618240600]
@@ -12,7 +14,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+theme = ExtResource("1_2fc2m")
 script = ExtResource("1_1l46r")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=108755388]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_032fp")
 
 [node name="DaySummaryPanel" parent="." unique_id=73380075 instance=ExtResource("1_lx5au")]
 layout_mode = 1
@@ -22,6 +34,7 @@ offset_right = -135.0
 offset_bottom = -79.0
 
 [node name="BuyPanel" parent="." unique_id=2124875960 instance=ExtResource("2_xfvoa")]
+visible = false
 layout_mode = 1
 offset_left = 105.0
 offset_top = 17.0
