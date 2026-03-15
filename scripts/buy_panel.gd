@@ -26,7 +26,7 @@ func setup_shop() -> void:
 	print("number of items: %d" % to_offer.size())
 	while to_offer.size() < 3:
 		to_offer.push_back(Utils.ItemId.NOTHING_LEFT)
-	money_label.text = "%d🪙" % GameState.bank_money
+	money_label.text = "%d$" % GameState.bank_money
 	
 	var db: Dictionary[Utils.ItemId, GameItem] = GameState.item_db
 	for i in range(3):
@@ -37,7 +37,7 @@ func setup_shop() -> void:
 		else:
 			var item: GameItem = db[to_offer[i]]
 			images[i].texture = item.image
-			buy_buttons[i].text =  "%d🪙" % item.price
+			buy_buttons[i].text =  "%d$" % item.price
 			images[i].tooltip_text =  item.tooltip
 			buy_buttons[i].tooltip_text =  item.tooltip
 
@@ -48,7 +48,7 @@ func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
 	if GameState.bank_money < item.price:
 		return
 	GameState.bank_money -= item.price
-	money_label.text = "%d🪙" % GameState.bank_money
+	money_label.text = "%d$" % GameState.bank_money
 	
 	var selected: Utils.ItemId = to_offer[pos]
 	var idx: int = GameState.item_pool.find(selected)

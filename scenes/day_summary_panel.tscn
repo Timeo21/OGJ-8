@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cr0l7sl7l4gtu"]
+[gd_scene format=3 uid="uid://l51u8gk0bukm"]
 
 [ext_resource type="Script" uid="uid://bnx0bxy80hj48" path="res://scripts/day_summary_panel.gd" id="1_e52bd"]
 
@@ -49,7 +49,7 @@ text = "Easy fish number: 5"
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 10
-text = "→5🪙"
+text = "→5¤"
 horizontal_alignment = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VSplitContainer/VBoxContainer" unique_id=828399382]
@@ -64,7 +64,7 @@ text = "Normal fish number: 5"
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 10
-text = "→5🪙"
+text = "→5$"
 horizontal_alignment = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VSplitContainer/VBoxContainer" unique_id=257763446]
