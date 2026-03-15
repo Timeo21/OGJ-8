@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d3x2qthwwq1fi" path="res://assets/Maison.png" id="1_usia5"]
 [ext_resource type="Script" uid="uid://ndi6tvtjyhdg" path="res://scenes/sprite_2d.gd" id="2_kihby"]
+[ext_resource type="Texture2D" uid="uid://ox7o0v6h6iyc" path="res://assets/pecheurPêche1.png" id="3_oayi1"]
 
 [node name="Maison" type="Node2D" unique_id=1682816922]
 
@@ -121,3 +122,75 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "I must take revenge by 
 fishing more fish !"
+
+[node name="Panel8" type="Panel" parent="Sprite2D" unique_id=712780557]
+visible = false
+offset_left = -134.0
+offset_top = -66.0
+offset_right = 30.0
+offset_bottom = -17.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Sprite2D/Panel8" unique_id=1172886034]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "At least everything is 
+fine in my house."
+
+[node name="Panel9" type="Panel" parent="Sprite2D" unique_id=630944211]
+visible = false
+offset_left = -129.0
+offset_top = -73.0
+offset_right = 14.0
+offset_bottom = -21.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Sprite2D/Panel9" unique_id=336616234]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 47.0
+text = "You ? Here ?! How 
+is it possible ?!"
+
+[node name="Panel10" type="Panel" parent="Sprite2D" unique_id=1810071515]
+visible = false
+offset_left = 25.0
+offset_top = -60.0
+offset_right = 192.0
+offset_bottom = -12.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Sprite2D/Panel10" unique_id=184188380]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "I came to challenge
+you in a fishing battle"
+
+[node name="Panel11" type="Panel" parent="Sprite2D" unique_id=2084293209]
+visible = false
+offset_left = -134.0
+offset_top = -70.0
+offset_right = 15.0
+offset_bottom = -14.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Sprite2D/Panel11" unique_id=1823903007]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 147.0
+offset_bottom = 58.0
+text = "I shall accept your 
+challenge."
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1171947338]
+visible = false
+position = Vector2(447, 204)
+texture = ExtResource("3_oayi1")
+flip_h = true
