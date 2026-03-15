@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	
 	var prev_pos: Vector2 = position
 	position += speed*delta
-	print(collision_shape.shape.get_rect().size.x/2)
+	#print(collision_shape.shape.get_rect().size.x/2)
 	position.x = clamp(position.x, top_left_pos.x + collision_shape.shape.get_rect().size.x/2,bot_right_pos.x - collision_shape.shape.get_rect().size.x/2)
 	position.y = clamp(position.y, top_left_pos.y + collision_shape.shape.get_rect().size.y/2,bot_right_pos.y - collision_shape.shape.get_rect().size.y/2)
 	

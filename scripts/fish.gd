@@ -22,6 +22,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	#print(capture_progress)
 	if (area.has_overlapping_areas()):
 		progress_bar(capture_speed*delta)
 	else:
