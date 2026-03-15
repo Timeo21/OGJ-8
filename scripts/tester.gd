@@ -64,3 +64,8 @@ func _ready() -> void:
 		var i: int = GameState.item_pool.find(Utils.ItemId.TP)
 		GameState.item_pool.remove_at(i)
 		TransitionPlayer.change_scene("res://scenes/main.tscn")	
+		
+	if test_number == 101:
+		randomize()
+		GameState.day_counter = 3
+		TransitionPlayer.change_scene("res://scenes/main.tscn")	
