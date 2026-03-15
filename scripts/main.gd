@@ -1,11 +1,10 @@
 class_name Main
 extends Node
 
-@onready var time_label: Label = $"UI/Game UI/Label"
-@onready var money_label: Label = $"UI/Menu UI/MoneyLabel"
-@onready var camera_2d: Camera2D = $Gameplay/Camera2D
-@onready var menu_ui: Control = $"UI/Menu UI"
-@onready var game_ui: Control = $"UI/Game UI"
+@export var time_label: Label
+@export var camera_2d: Camera2D
+@export var menu_ui: Control
+@export var game_ui: Control
 
 var time_left: float
 @export var time: float = 40
@@ -54,4 +53,4 @@ func update_timer(time: float) -> void:
 	var min: int = floori(floori(time)/60)
 	var min_txt:String = str(min)+":"
 	var sec_txt:String = "0"+str(sec) if sec < 10 else str(sec)
-	time_label.text = "Time left: " + min_txt+sec_txt
+	time_label.text = min_txt+sec_txt
