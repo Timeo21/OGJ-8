@@ -64,3 +64,36 @@ func _ready() -> void:
 		var i: int = GameState.item_pool.find(Utils.ItemId.TP)
 		GameState.item_pool.remove_at(i)
 		TransitionPlayer.change_scene("res://scenes/main.tscn")	
+
+	if test_number == 9:
+		randomize()
+		GameState.owned_items.push_back(Utils.ItemId.BIGGER)
+		var i: int = GameState.item_pool.find(Utils.ItemId.BIGGER)
+		GameState.item_pool.remove_at(i)
+		TransitionPlayer.change_scene("res://scenes/main.tscn")
+			
+	if test_number == 10:
+		randomize()
+		GameState.owned_items.push_back(Utils.ItemId.NET)
+		var i: int = GameState.item_pool.find(Utils.ItemId.NET)
+		GameState.item_pool.remove_at(i)
+		TransitionPlayer.change_scene("res://scenes/main.tscn")	
+		
+	if test_number == 11:
+		randomize()
+		GameState.owned_items.push_back(Utils.ItemId.MASH)
+		var i: int = GameState.item_pool.find(Utils.ItemId.MASH)
+		GameState.item_pool.remove_at(i)
+		TransitionPlayer.change_scene("res://scenes/main.tscn")
+		
+	if test_number == 12:
+		randomize()
+		GameState.owned_items.push_back(Utils.ItemId.AIM)
+		var i: int = GameState.item_pool.find(Utils.ItemId.AIM)
+		GameState.item_pool.remove_at(i)
+		TransitionPlayer.change_scene("res://scenes/main.tscn")
+		
+	if test_number == 101:
+		randomize()
+		GameState.day_counter = 3
+		TransitionPlayer.change_scene("res://scenes/main.tscn")	
