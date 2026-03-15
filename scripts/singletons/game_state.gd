@@ -1,5 +1,6 @@
 extends Node
 
+var day_counter: int = 0
 var owned_items: Array[Utils.ItemId] = []
 var bank_money: int = 0 
 var summary: DaySummary = DaySummary.new(0, 0, 0)
