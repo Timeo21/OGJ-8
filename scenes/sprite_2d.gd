@@ -21,6 +21,9 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		timer += 99
+		timer1 += 99
 	if GameState.day_counter == 0:
 		panel.visible = true 
 		timer = delta + timer
