@@ -78,13 +78,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Main" type="Node" unique_id=2076612375 node_paths=PackedStringArray("time_label", "camera_2d", "menu_ui", "game_ui")]
+[node name="Main" type="Node" unique_id=2076612375 node_paths=PackedStringArray("time_label", "camera_2d", "menu_ui", "game_ui", "cursor")]
 script = ExtResource("1_trceg")
 time_label = NodePath("UI/Control/Game UI/Label")
 camera_2d = NodePath("Gameplay/Camera2D")
 menu_ui = NodePath("UI/Control/Menu UI")
 game_ui = NodePath("UI/Control/Game UI")
-time = 38.355
+cursor = NodePath("Gameplay/Cursor")
+time = 39.95
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1388712454]
 
@@ -232,6 +233,7 @@ limit_bottom = 180
 script = ExtResource("1_o5qli")
 
 [node name="Cursor" parent="Gameplay" unique_id=29777647 instance=ExtResource("3_sugp2")]
+visible = false
 position = Vector2(649, 237)
 
 [node name="FishNormal" parent="Gameplay" unique_id=2065414123 instance=ExtResource("6_o6xl0")]
