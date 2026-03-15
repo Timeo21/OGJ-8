@@ -23,6 +23,7 @@ func _ready() -> void:
 	top_left_pos = marker.position
 	marker = dir.bot_right_maker
 	bot_right_pos = marker.position
+	net()
 	pass
 
 func _process(delta: float) -> void:
@@ -59,3 +60,6 @@ func capture() -> void:
 	
 	pass
 	
+func net() -> void:
+	if GameState.isItemOwned(Utils.ItemId.NET):
+		capture_speed *=2
