@@ -3,10 +3,71 @@
 [ext_resource type="Script" uid="uid://b2uoh7rwwhg1" path="res://scripts/camera_2d.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
+[ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
+[ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scenes/fisherman.gd" id="3_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bvnangrlj4kax" path="res://scenes/cursor.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="3_tipki"]
+[ext_resource type="Texture2D" uid="uid://bi6vll0nu8e8c" path="res://assets/Line_Throw_Sheet.png" id="4_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5xawcrwvcw7m" path="res://scenes/fish_normal.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" path="res://scenes/hard_fish.tscn" id="8_tipki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
+atlas = ExtResource("4_trceg")
+region = Rect2(0, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hq0q"]
+atlas = ExtResource("4_trceg")
+region = Rect2(480, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyub0"]
+atlas = ExtResource("4_trceg")
+region = Rect2(960, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag3va"]
+atlas = ExtResource("4_trceg")
+region = Rect2(1440, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eea3"]
+atlas = ExtResource("4_trceg")
+region = Rect2(1920, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ep3"]
+atlas = ExtResource("4_trceg")
+region = Rect2(2400, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayr21"]
+atlas = ExtResource("4_trceg")
+region = Rect2(2880, 0, 480, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8y0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6jnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hq0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyub0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag3va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ep3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayr21")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node" unique_id=2076612375]
 
@@ -15,6 +76,16 @@
 [node name="BigBackground" type="Sprite2D" parent="Visuals" unique_id=2129548976]
 position = Vector2(640, 360)
 texture = ExtResource("1_o6xl0")
+
+[node name="Fisherman" type="AnimatedSprite2D" parent="Visuals" unique_id=1884697019]
+position = Vector2(270, 100)
+sprite_frames = ExtResource("2_ya4ey")
+script = ExtResource("3_eb6dy")
+
+[node name="Line" type="AnimatedSprite2D" parent="Visuals/Fisherman" unique_id=752470712]
+visible = false
+position = Vector2(271, -18)
+sprite_frames = SubResource("SpriteFrames_a8y0u")
 
 [node name="Boat" type="Sprite2D" parent="Visuals" unique_id=1962119179]
 position = Vector2(188, 169)
@@ -63,3 +134,6 @@ position = Vector2(817, 328)
 
 [node name="FishEasy" parent="Gameplay" unique_id=649289354 instance=ExtResource("7_tipki")]
 position = Vector2(542, 399)
+
+[node name="HardFish" parent="Gameplay" unique_id=900989302 instance=ExtResource("8_tipki")]
+position = Vector2(778, 467)
