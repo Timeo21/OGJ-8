@@ -38,6 +38,8 @@ func setup_shop() -> void:
 			var item: GameItem = db[to_offer[i]]
 			images[i].texture = item.image
 			buy_buttons[i].text =  "%d🪙" % item.price
+			images[i].tooltip_text =  item.tooltip
+			buy_buttons[i].tooltip_text =  item.tooltip
 
 func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
 	SignalBus.button_clicked.emit()
@@ -55,8 +57,10 @@ func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
 	SignalBus.items_updated.emit()
 	
 	images[pos].texture = out_of_stock_img
+	images[pos].tooltip_text = ""
 	buy_buttons[pos].text =  ""
 	buy_buttons[pos].disabled = true
+	buy_buttons[pos].tooltip_text = ""
 	
 
 func _on_button_left_pressed() -> void:

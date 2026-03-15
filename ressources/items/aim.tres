@@ -9,4 +9,5 @@ name = "Aim"
 id = 8
 image = ExtResource("1_xrsvb")
 price = 5
+tooltip = "Helps you get closer to the fish"
 metadata/_custom_type_script = "uid://dxnf2wjrm02"

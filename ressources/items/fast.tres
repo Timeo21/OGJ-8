@@ -9,4 +9,5 @@ name = "Fast"
 id = 4
 image = ExtResource("1_k8cyb")
 price = 3
+tooltip = "Makes you hook faster"
 metadata/_custom_type_script = "uid://dxnf2wjrm02"

@@ -5,3 +5,4 @@ extends Resource
 @export var id: Utils.ItemId
 @export var image: Texture2D
 @export var price: int
+@export var tooltip: String
