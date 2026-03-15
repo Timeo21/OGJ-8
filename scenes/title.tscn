@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://byxrepikryhpo"]
+
+[ext_resource type="Script" uid="uid://u70k7uusqtsc" path="res://scripts/game_manager.gd" id="1_4ignj"]
+[ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="2_ia1n6"]
+[ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="3_hiwto"]
+[ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="4_w65of"]
+[ext_resource type="Texture2D" uid="uid://bi6vll0nu8e8c" path="res://assets/Line_Throw_Sheet.png" id="5_ygloa"]
+[ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="6_6civk"]
+[ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="7_7af2g"]
+[ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="8_81wt4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvspv"]
+line_spacing = 4.57
+font_size = 28
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
+atlas = ExtResource("5_ygloa")
+region = Rect2(0, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hq0q"]
+atlas = ExtResource("5_ygloa")
+region = Rect2(480, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyub0"]
+atlas = ExtResource("5_ygloa")
+region = Rect2(960, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag3va"]
+atlas = ExtResource("5_ygloa")
+region = Rect2(1440, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eea3"]
+atlas = ExtResource("5_ygloa")
+region = Rect2(1920, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ep3"]
+atlas = ExtResource("5_ygloa")
+region = Rect2(2400, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayr21"]
+atlas = ExtResource("5_ygloa")
+region = Rect2(2880, 0, 480, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcc3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6jnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hq0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyub0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag3va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ep3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayr21")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Title" type="Control" unique_id=1765425426]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ignj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1226387094]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -146.0
+offset_right = 540.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=147481298]
+layout_mode = 2
+text = "Tim's fishing
+"
+label_settings = SubResource("LabelSettings_pvspv")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=2018099680]
+visible = false
+custom_minimum_size = Vector2(0, 54.145)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=682207274]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
+
+[node name="Visuals" type="Node" parent="." unique_id=514855908]
+
+[node name="BigBackground" type="Sprite2D" parent="Visuals" unique_id=1044896721]
+position = Vector2(640, 360)
+texture = ExtResource("2_ia1n6")
+
+[node name="Fisherman" type="AnimatedSprite2D" parent="Visuals" unique_id=1368681817]
+position = Vector2(270, 100)
+sprite_frames = ExtResource("3_hiwto")
+animation = &"Title_Animation"
+script = ExtResource("4_w65of")
+title = true
+
+[node name="Line" type="AnimatedSprite2D" parent="Visuals/Fisherman" unique_id=2142911207]
+visible = false
+position = Vector2(271, -18)
+sprite_frames = SubResource("SpriteFrames_kcc3o")
+
+[node name="Boat" type="Sprite2D" parent="Visuals" unique_id=1691075105]
+position = Vector2(188, 169)
+texture = ExtResource("6_6civk")
+
+[node name="Bubbles" type="Node" parent="Visuals" unique_id=1582307155]
+
+[node name="bubbles" parent="Visuals/Bubbles" unique_id=861841015 instance=ExtResource("7_7af2g")]
+position = Vector2(28, 264)
+scale = Vector2(0.5, 0.5)
+
+[node name="bubbles2" parent="Visuals/Bubbles" unique_id=1503737374 instance=ExtResource("7_7af2g")]
+position = Vector2(228, 264)
+scale = Vector2(0.5, 0.5)
+
+[node name="bubbles3" parent="Visuals/Bubbles" unique_id=425044256 instance=ExtResource("7_7af2g")]
+position = Vector2(305, 253)
+scale = Vector2(0.5, 0.5)
+
+[node name="Waves" type="Node" parent="Visuals" unique_id=787428709]
+
+[node name="Wave" parent="Visuals/Waves" unique_id=1212107676 instance=ExtResource("8_81wt4")]
+position = Vector2(355, 157)
+
+[node name="Wave2" parent="Visuals/Waves" unique_id=1834746848 instance=ExtResource("8_81wt4")]
+position = Vector2(467, 158)
+
+[node name="Wave3" parent="Visuals/Waves" unique_id=223024151 instance=ExtResource("8_81wt4")]
+position = Vector2(607, 156)
+
+[node name="Quit Game" type="Button" parent="." unique_id=1691939761]
+z_index = 1
+layout_mode = 0
+offset_left = 423.0
+offset_top = 165.0
+offset_right = 515.0
+offset_bottom = 196.0
+text = "Quit Game"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Quit Game" to="." method="_on_quit_game_pressed"]

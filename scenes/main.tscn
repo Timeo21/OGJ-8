@@ -1,22 +1,108 @@
 [gd_scene format=3 uid="uid://clcywy3bjl68a"]
 
 [ext_resource type="Script" uid="uid://b2uoh7rwwhg1" path="res://scripts/camera_2d.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://dsmn2qbkoicpk" path="res://assets/decorations/background.png" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_trceg"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
+[ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
+[ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bvnangrlj4kax" path="res://scenes/cursor.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="3_tipki"]
+[ext_resource type="Texture2D" uid="uid://bi6vll0nu8e8c" path="res://assets/Line_Throw_Sheet.png" id="4_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5xawcrwvcw7m" path="res://scenes/fish_normal.tscn" id="6_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://06hwg1ibipeu" path="res://assets/big_background.png" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://ctn57t3f21df" path="res://scenes/hard_fish.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="13_trceg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
+atlas = ExtResource("4_trceg")
+region = Rect2(0, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hq0q"]
+atlas = ExtResource("4_trceg")
+region = Rect2(480, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyub0"]
+atlas = ExtResource("4_trceg")
+region = Rect2(960, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag3va"]
+atlas = ExtResource("4_trceg")
+region = Rect2(1440, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eea3"]
+atlas = ExtResource("4_trceg")
+region = Rect2(1920, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ep3"]
+atlas = ExtResource("4_trceg")
+region = Rect2(2400, 0, 480, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayr21"]
+atlas = ExtResource("4_trceg")
+region = Rect2(2880, 0, 480, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8y0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6jnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hq0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyub0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag3va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ep3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayr21")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node" unique_id=2076612375]
+script = ExtResource("1_trceg")
+
+[node name="UI" type="Node" parent="." unique_id=131593825]
+
+[node name="Menu UI" type="Control" parent="UI" unique_id=677685714]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Game UI" type="Control" parent="UI" unique_id=57630753]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Visuals" type="Node" parent="." unique_id=505781156]
 
-[node name="BigBackground" type="Sprite2D" parent="Visuals" unique_id=1026328720]
-texture_filter = 1
+[node name="BigBackground" type="Sprite2D" parent="Visuals" unique_id=2129548976]
 position = Vector2(640, 360)
-texture = ExtResource("6_tefeu")
+texture = ExtResource("1_o6xl0")
+
+[node name="Fisherman" type="AnimatedSprite2D" parent="Visuals" unique_id=1884697019]
+position = Vector2(270, 100)
+sprite_frames = ExtResource("2_ya4ey")
+script = ExtResource("3_eb6dy")
+
+[node name="Line" type="AnimatedSprite2D" parent="Visuals/Fisherman" unique_id=752470712]
+visible = false
+position = Vector2(271, -18)
+sprite_frames = SubResource("SpriteFrames_a8y0u")
 
 [node name="Boat" type="Sprite2D" parent="Visuals" unique_id=1962119179]
 position = Vector2(188, 169)
@@ -36,12 +122,23 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(305, 253)
 scale = Vector2(0.5, 0.5)
 
+[node name="Waves" type="Node" parent="Visuals" unique_id=343645996]
+
+[node name="Wave" parent="Visuals/Waves" unique_id=1212107676 instance=ExtResource("13_trceg")]
+position = Vector2(355, 157)
+
+[node name="Wave2" parent="Visuals/Waves" unique_id=365280924 instance=ExtResource("13_trceg")]
+position = Vector2(467, 158)
+
+[node name="Wave3" parent="Visuals/Waves" unique_id=657823490 instance=ExtResource("13_trceg")]
+position = Vector2(607, 156)
+
 [node name="Gameplay" type="Node" parent="." unique_id=258947638]
 
 [node name="Camera2D" type="Camera2D" parent="Gameplay" unique_id=1904801016]
 show_behind_parent = true
 top_level = true
-position = Vector2(694, 378)
+position = Vector2(323, 183)
 limit_enabled = false
 limit_left = -340
 limit_top = -180
@@ -50,7 +147,15 @@ limit_bottom = 180
 script = ExtResource("1_o5qli")
 
 [node name="Cursor" parent="Gameplay" unique_id=29777647 instance=ExtResource("3_sugp2")]
-position = Vector2(398, 244)
+position = Vector2(649, 237)
+
+[node name="CameraMenu" type="Marker2D" parent="Gameplay" unique_id=138323782]
+unique_name_in_owner = true
+position = Vector2(323, 183)
+
+[node name="CameraGame" type="Marker2D" parent="Gameplay" unique_id=1192370895]
+unique_name_in_owner = true
+position = Vector2(694, 378)
 
 [node name="TopLeftMarker" type="Marker2D" parent="Gameplay" unique_id=1953625695]
 unique_name_in_owner = true
@@ -58,14 +163,13 @@ position = Vector2(374, 198)
 
 [node name="BotRightMarker" type="Marker2D" parent="Gameplay" unique_id=1583128163]
 unique_name_in_owner = true
-position = Vector2(1014, 540)
+position = Vector2(1014, 550)
 
 [node name="FishNormal" parent="Gameplay" unique_id=2065414123 instance=ExtResource("6_o6xl0")]
 position = Vector2(817, 328)
 
 [node name="FishEasy" parent="Gameplay" unique_id=649289354 instance=ExtResource("7_tipki")]
 position = Vector2(542, 399)
-min_speed = 80.1
-max_speed = 120.01
-min_angular_speed = 0.74
-max_angular_speed = 1.1
+
+[node name="HardFish" parent="Gameplay" unique_id=900989302 instance=ExtResource("8_tipki")]
+position = Vector2(778, 467)

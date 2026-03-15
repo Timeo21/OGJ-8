@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://btl7gddtcfa3e" path="res://assets/decorations/bubbles.png" id="1_2eoim"]
 [ext_resource type="Shader" uid="uid://2kdyrypxaanr" path="res://shaders/bubbles.gdshader" id="1_gt360"]
-[ext_resource type="Script" uid="uid://d3pf1b67x360d" path="res://scenes/bubbles.gd" id="1_wdrk5"]
+[ext_resource type="Script" uid="uid://d3pf1b67x360d" path="res://scripts/bubbles.gd" id="1_wdrk5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wdrk5"]
 shader = ExtResource("1_gt360")
