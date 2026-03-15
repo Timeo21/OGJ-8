@@ -8,11 +8,12 @@ var bot_right_pos: Vector2
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-@export var mul: float = 2
 @export var decel: float = 200
 @export var boost_mash: float = 200
 @export var boost_keep: float = 400
-@export var max_speed: float = 400
+@onready var max_speed: float = get_max_speed()
+@export var base_max_speed: float = 400
+@export var fast_multiplier: float = 2
 @export var speed: Vector2 = Vector2.ZERO
 @export var mode: Mode = Mode.KEEP
 @export var border_offset: float = 0
@@ -53,3 +54,8 @@ func _physics_process(delta: float) -> void:
 	
 	# so that speed at botom is 0
 	speed = (position - prev_pos) / delta 
+	
+func get_max_speed() -> float:
+	if GameState.isItemOwned(Utils.ItemId.FAST):
+		return fast_multiplier*base_max_speed
+	return base_max_speed

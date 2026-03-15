@@ -8,7 +8,7 @@
 
 [node name="Tester" type="Node" unique_id=90102652 node_paths=PackedStringArray("buy_panel", "summary_panel")]
 script = ExtResource("1_mnnv6")
-test_number = 5
+test_number = 6
 buy_panel = NodePath("Control/BuyPanel")
 summary_panel = NodePath("Control/DaySummaryPanel")
 

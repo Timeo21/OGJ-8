@@ -42,3 +42,10 @@ func _ready() -> void:
 		var i: int = GameState.item_pool.find(Utils.ItemId.SLOW)
 		GameState.item_pool.remove_at(i)
 		TransitionPlayer.change_scene("res://scenes/main.tscn")
+		
+	if test_number == 6:
+		randomize()
+		GameState.owned_items.push_back(Utils.ItemId.FAST)
+		var i: int = GameState.item_pool.find(Utils.ItemId.FAST)
+		GameState.item_pool.remove_at(i)
+		TransitionPlayer.change_scene("res://scenes/main.tscn")	
