@@ -10,8 +10,11 @@ var dir: Vector2 = Vector2.RIGHT
 
 @export var capture_speed:float = 0.1
 @export var decay_speed:float = -0.075
+@export var value:int = 1
 
 var capture_progress:float
+
+signal on_captured
 
 
 func _ready() -> void:
@@ -48,5 +51,6 @@ func progress_bar(progress_unit: float) -> void:
 		dir = (dir.normalized() + Vector2.DOWN).normalized()
 
 func capture() -> void:
+	SignalBus.fish_caugth.emit(value)
 	queue_free()
 	pass

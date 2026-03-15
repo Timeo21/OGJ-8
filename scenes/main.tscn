@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2uoh7rwwhg1" path="res://scripts/camera_2d.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_trceg"]
+[ext_resource type="Script" uid="uid://bpr16eerg5ei7" path="res://scripts/main.gd" id="1_trceg"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://ctn57t3f21df" path="res://scenes/hard_fish.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="13_trceg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_trceg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
 atlas = ExtResource("4_trceg")
@@ -74,19 +76,59 @@ animations = [{
 [node name="Main" type="Node" unique_id=2076612375]
 script = ExtResource("1_trceg")
 
-[node name="UI" type="Node" parent="." unique_id=131593825]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1388712454]
 
 [node name="Menu UI" type="Control" parent="UI" unique_id=677685714]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/Menu UI" unique_id=863631370]
+z_index = 99
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = 19.0
+offset_right = -79.875
+offset_bottom = 73.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Go
+Fishing"
+
+[node name="MoneyLabel" type="Label" parent="UI/Menu UI" unique_id=1941556402]
+layout_mode = 0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+text = "Money:"
 
 [node name="Game UI" type="Control" parent="UI" unique_id=57630753]
+visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Game UI" unique_id=617074833]
+z_index = 99
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -142.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Time Left : 6:07"
+label_settings = SubResource("LabelSettings_trceg")
 
 [node name="Visuals" type="Node" parent="." unique_id=505781156]
 
@@ -149,27 +191,86 @@ script = ExtResource("1_o5qli")
 [node name="Cursor" parent="Gameplay" unique_id=29777647 instance=ExtResource("3_sugp2")]
 position = Vector2(649, 237)
 
-[node name="CameraMenu" type="Marker2D" parent="Gameplay" unique_id=138323782]
-unique_name_in_owner = true
-position = Vector2(323, 183)
-
-[node name="CameraGame" type="Marker2D" parent="Gameplay" unique_id=1192370895]
-unique_name_in_owner = true
-position = Vector2(694, 378)
-
-[node name="TopLeftMarker" type="Marker2D" parent="Gameplay" unique_id=1953625695]
-unique_name_in_owner = true
-position = Vector2(374, 198)
-
-[node name="BotRightMarker" type="Marker2D" parent="Gameplay" unique_id=1583128163]
-unique_name_in_owner = true
-position = Vector2(1014, 550)
-
 [node name="FishNormal" parent="Gameplay" unique_id=2065414123 instance=ExtResource("6_o6xl0")]
 position = Vector2(817, 328)
+value = 3
 
 [node name="FishEasy" parent="Gameplay" unique_id=649289354 instance=ExtResource("7_tipki")]
 position = Vector2(542, 399)
+value = 2
 
 [node name="HardFish" parent="Gameplay" unique_id=900989302 instance=ExtResource("8_tipki")]
 position = Vector2(778, 467)
+value = 4
+
+[node name="Markers" type="Node" parent="Gameplay" unique_id=555657206]
+
+[node name="Camera" type="Node" parent="Gameplay/Markers" unique_id=1508255614]
+
+[node name="CameraMenu" type="Marker2D" parent="Gameplay/Markers/Camera" unique_id=138323782]
+unique_name_in_owner = true
+position = Vector2(323, 183)
+
+[node name="CameraGame" type="Marker2D" parent="Gameplay/Markers/Camera" unique_id=1192370895]
+unique_name_in_owner = true
+position = Vector2(694, 378)
+
+[node name="Border" type="Node" parent="Gameplay/Markers" unique_id=680484668]
+
+[node name="TopLeftMarker" type="Marker2D" parent="Gameplay/Markers/Border" unique_id=1953625695]
+unique_name_in_owner = true
+position = Vector2(374, 198)
+
+[node name="BotRightMarker" type="Marker2D" parent="Gameplay/Markers/Border" unique_id=1583128163]
+unique_name_in_owner = true
+position = Vector2(1014, 550)
+
+[node name="FishSpawners" type="Node" parent="Gameplay/Markers" unique_id=795194546]
+
+[node name="FishSpawner1" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=1962550807]
+unique_name_in_owner = true
+position = Vector2(443, 503)
+
+[node name="FishSpawner2" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=906274505]
+unique_name_in_owner = true
+position = Vector2(467, 413)
+
+[node name="FishSpawner3" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=924182293]
+unique_name_in_owner = true
+position = Vector2(572, 485)
+
+[node name="FishSpawner4" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=531173675]
+unique_name_in_owner = true
+position = Vector2(613, 393)
+
+[node name="FishSpawner5" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=84394125]
+unique_name_in_owner = true
+position = Vector2(702, 484)
+
+[node name="FishSpawner6" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=1817077165]
+unique_name_in_owner = true
+position = Vector2(763, 402)
+
+[node name="FishSpawner7" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=648265356]
+unique_name_in_owner = true
+position = Vector2(879, 467)
+
+[node name="FishSpawner8" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=1643096375]
+unique_name_in_owner = true
+position = Vector2(954, 368)
+
+[node name="FishSpawner9" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=561680780]
+unique_name_in_owner = true
+position = Vector2(850, 357)
+
+[node name="FishSpawner10" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=1293148060]
+unique_name_in_owner = true
+position = Vector2(741, 266)
+
+[node name="FishSpawner11" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=794724473]
+unique_name_in_owner = true
+position = Vector2(918, 250)
+
+[connection signal="pressed" from="UI/Menu UI/Button" to="." method="_on_fishing_button_pressed"]
+[connection signal="pressed" from="UI/Menu UI/Button" to="Visuals/Fisherman" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Menu UI/Button" to="Gameplay/Camera2D" method="_on_button_pressed"]

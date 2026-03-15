@@ -8,6 +8,9 @@ var time: float
 var timer: float
 var current: Vector2
 
+signal on_reach_game_pos
+signal on_reach_menu_pos
+
 func _ready() -> void:
 	var marker: Marker2D = %CameraMenu
 	menu_pos = marker.position
@@ -16,7 +19,7 @@ func _ready() -> void:
 	current = menu_pos
 	position = menu_pos
 	pass
-
+	
 func _process(delta: float) -> void:
 	if time == 0:
 		return
@@ -24,9 +27,14 @@ func _process(delta: float) -> void:
 		timer = time
 		position = lerp(current, target, timer/time)
 		current = position
+		if target == game_pos:
+			on_reach_game_pos.emit()
+		elif target == menu_pos:
+			on_reach_menu_pos.emit()
 		time = 0
 	else:
 		position = lerp(current, target, timer/time)
+		
 	timer += delta
 	pass
 
@@ -39,8 +47,6 @@ func move_to(pos: int, time: float) -> void:
 		_: target = menu_pos
 	pass
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("right"):
-		move_to(1,3)
-	if event.is_action_pressed("up"):
-		move_to(0,3)
+func _on_button_pressed() -> void:
+	move_to(1,3)
+	pass
