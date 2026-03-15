@@ -1,9 +1,12 @@
 extends Fish
 
-@export var min_speed = 80.0
-@export var max_speed = 120.0
+@onready var min_speed = get_min_speed()
+@onready var max_speed = get_max_speed()
 @export var min_angular_speed = 0.75
 @export var max_angular_speed = 1.0
+@export var slow_multiplier: float = 0.5
+@export var base_min_speed: float = 80.0
+@export var base_max_speed: float = 120.0
 
 var targetP: Vector2 = Vector2.ZERO
 var targetV: Vector2 = Vector2.ZERO
@@ -55,3 +58,13 @@ func _process(delta: float) -> void:
 #func _draw() -> void:
 	#draw_line(Vector2.ZERO, direction.normalized() * 100, Color.RED, 1.0)
 	#draw_circle(targetP - position, 5, Color.RED)
+	
+func get_max_speed() -> float:
+	if GameState.isItemOwned(Utils.ItemId.SLOW):
+		return slow_multiplier*base_max_speed
+	return base_max_speed
+	
+func get_min_speed() -> float:
+	if GameState.isItemOwned(Utils.ItemId.SLOW):
+		return slow_multiplier*base_min_speed
+	return base_min_speed

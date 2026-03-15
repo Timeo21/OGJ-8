@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://bpr16eerg5ei7" path="res://scripts/main.gd" id="1_trceg"]
 [ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="2_a8y0u"]
+[ext_resource type="Theme" uid="uid://be471ov2oduy2" path="res://ressources/main_theme.tres" id="2_jbj1t"]
+[ext_resource type="FontFile" uid="uid://b6tn6xiqof0rm" path="res://assets/fonts/Titan_One/TitanOne-Regular.ttf" id="2_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
@@ -16,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="13_trceg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_trceg"]
+font = ExtResource("2_jkv2x")
+font_size = 37
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
 atlas = ExtResource("4_trceg")
@@ -74,21 +78,35 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Main" type="Node" unique_id=2076612375]
+[node name="Main" type="Node" unique_id=2076612375 node_paths=PackedStringArray("time_label", "camera_2d", "menu_ui", "game_ui", "cursor")]
 script = ExtResource("1_trceg")
-time = 38.355
+time_label = NodePath("UI/Control/Game UI/Label")
+camera_2d = NodePath("Gameplay/Camera2D")
+menu_ui = NodePath("UI/Control/Menu UI")
+game_ui = NodePath("UI/Control/Game UI")
+cursor = NodePath("Gameplay/Cursor")
+time = 39.95
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1388712454]
 
-[node name="Menu UI" type="Control" parent="UI" unique_id=677685714]
+[node name="Control" type="Control" parent="UI" unique_id=1604635673]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_jbj1t")
 
-[node name="Button" type="Button" parent="UI/Menu UI" unique_id=863631370]
+[node name="Menu UI" type="Control" parent="UI/Control" unique_id=677685714]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/Control/Menu UI" unique_id=863631370]
 z_index = 99
 layout_mode = 1
 anchors_preset = 6
@@ -105,29 +123,34 @@ grow_vertical = 2
 text = "Go
 Fishing"
 
-[node name="Game UI" type="Control" parent="UI" unique_id=57630753]
+[node name="Game UI" type="Control" parent="UI/Control" unique_id=57630753]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI/Game UI" unique_id=617074833]
+[node name="Label" type="Label" parent="UI/Control/Game UI" unique_id=617074833]
 z_index = 99
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -142.0
-offset_bottom = 23.0
-grow_horizontal = 0
-text = "Time Left : 6:07"
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -50.0
+offset_right = 71.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "6:07"
 label_settings = SubResource("LabelSettings_trceg")
+horizontal_alignment = 1
 
-[node name="PersistentUI" type="Control" parent="UI" unique_id=972850017]
-layout_mode = 3
+[node name="PersistentUI" type="Control" parent="UI/Control" unique_id=972850017]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -135,7 +158,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ItemOverlay" parent="UI/PersistentUI" unique_id=1326312432 instance=ExtResource("2_a8y0u")]
+[node name="ItemOverlay" parent="UI/Control/PersistentUI" unique_id=1326312432 instance=ExtResource("2_a8y0u")]
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
@@ -177,6 +200,14 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(305, 253)
 scale = Vector2(0.5, 0.5)
 
+[node name="bubbles4" parent="Visuals/Bubbles" unique_id=291709326 instance=ExtResource("3_tipki")]
+position = Vector2(518, 471)
+scale = Vector2(0.5, 0.5)
+
+[node name="bubbles5" parent="Visuals/Bubbles" unique_id=360461579 instance=ExtResource("3_tipki")]
+position = Vector2(798, 467)
+scale = Vector2(0.5, 0.5)
+
 [node name="Waves" type="Node" parent="Visuals" unique_id=343645996]
 
 [node name="Wave" parent="Visuals/Waves" unique_id=1212107676 instance=ExtResource("13_trceg")]
@@ -202,10 +233,12 @@ limit_bottom = 180
 script = ExtResource("1_o5qli")
 
 [node name="Cursor" parent="Gameplay" unique_id=29777647 instance=ExtResource("3_sugp2")]
+visible = false
 position = Vector2(649, 237)
 
 [node name="FishNormal" parent="Gameplay" unique_id=2065414123 instance=ExtResource("6_o6xl0")]
 position = Vector2(817, 328)
+base_speed = 100.0
 
 [node name="FishEasy" parent="Gameplay" unique_id=649289354 instance=ExtResource("7_tipki")]
 position = Vector2(542, 399)
@@ -281,6 +314,6 @@ position = Vector2(741, 266)
 unique_name_in_owner = true
 position = Vector2(918, 250)
 
-[connection signal="pressed" from="UI/Menu UI/Button" to="." method="_on_fishing_button_pressed"]
-[connection signal="pressed" from="UI/Menu UI/Button" to="Visuals/Fisherman" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/Menu UI/Button" to="Gameplay/Camera2D" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Control/Menu UI/Button" to="." method="_on_fishing_button_pressed"]
+[connection signal="pressed" from="UI/Control/Menu UI/Button" to="Visuals/Fisherman" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Control/Menu UI/Button" to="Gameplay/Camera2D" method="_on_button_pressed"]

@@ -4,8 +4,15 @@
 [ext_resource type="Theme" uid="uid://be471ov2oduy2" path="res://ressources/main_theme.tres" id="1_2fc2m"]
 [ext_resource type="PackedScene" uid="uid://cr0l7sl7l4gtu" path="res://scenes/day_summary_panel.tscn" id="1_lx5au"]
 [ext_resource type="PackedScene" uid="uid://dot5nw3cee6xr" path="res://scenes/buy_panel.tscn" id="2_xfvoa"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://d3x2qthwwq1fi" path="res://assets/Maison.png" id="3_2fc2m"]
 [ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="3_8r1wq"]
+=======
+[ext_resource type="Texture2D" uid="uid://06hwg1ibipeu" path="res://assets/big_background.png" id="3_2fc2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r1wq"]
+atlas = ExtResource("3_2fc2m")
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8r1wq"]
 atlas = ExtResource("3_2fc2m")
@@ -29,11 +36,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 309.0
-offset_bottom = 188.0
+offset_left = -13.0
+offset_top = -12.0
+offset_right = 627.0
+offset_bottom = 348.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_8r1wq")
+<<<<<<< Updated upstream
 
 [node name="ItemOverlay" parent="." unique_id=1326312432 instance=ExtResource("3_8r1wq")]
 layout_mode = 1
@@ -42,6 +52,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+=======
+>>>>>>> Stashed changes
 
 [node name="DaySummaryPanel" parent="." unique_id=73380075 instance=ExtResource("1_lx5au")]
 layout_mode = 1

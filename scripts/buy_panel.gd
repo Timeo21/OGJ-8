@@ -11,6 +11,7 @@ signal buy_panel_next
 @export var buy3: Button
 @export var out_of_stock_img: Texture2D
 @export var money_label: Label
+@export var nothing_left: GameItem
 
 @onready var images: Array[TextureRect] = [image1, image2, image3]
 @onready var buy_buttons: Array[Button] = [buy1, buy2, buy3]
@@ -22,13 +23,20 @@ func setup_shop() -> void:
 	to_offer.shuffle()
 	to_offer = to_offer.slice(0, 3)
 	
+	while to_offer.size() < 3:
+		to_offer.push_back(Utils.ItemId.NOTHING_LEFT)
 	money_label.text = "%d🪙" % GameState.bank_money
 	
 	var db: Dictionary[Utils.ItemId, GameItem] = GameState.item_db
 	for i in range(3):
-		var item: GameItem = db[to_offer[i]]
-		images[i].texture = item.image
-		buy_buttons[i].text =  "%d🪙" % item.price
+		if  to_offer[i] == Utils.ItemId.NOTHING_LEFT:
+			images[i].texture = nothing_left.image
+			buy_buttons[i].text =  ""
+			buy_buttons[i].disabled =  true
+		else:
+			var item: GameItem = db[to_offer[i]]
+			images[i].texture = item.image
+			buy_buttons[i].text =  "%d🪙" % item.price
 
 func process_buy_press(pos: Utils.BuyButtonPostion) -> void:
 	SignalBus.button_clicked.emit()

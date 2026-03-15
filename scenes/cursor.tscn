@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bvnangrlj4kax"]
 
 [ext_resource type="Script" uid="uid://bs0tj5tx0y83n" path="res://scripts/cursor.gd" id="1_s0nli"]
-[ext_resource type="Texture2D" uid="uid://1qhlfwl0juc5" path="res://assets/icon.svg" id="2_ndevg"]
+[ext_resource type="Texture2D" uid="uid://cjulps0ljdoya" path="res://assets/Bait.png" id="2_s0nli"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndevg"]
+atlas = ExtResource("2_s0nli")
+region = Rect2(36, 0, 28.96, 54.095)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5qf0"]
 size = Vector2(76.666664, 76.666664)
@@ -10,9 +14,15 @@ size = Vector2(76.666664, 76.666664)
 script = ExtResource("1_s0nli")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2009491443]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_ndevg")
+position = Vector2(-1, -5)
+texture = SubResource("AtlasTexture_ndevg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=359013327]
 position = Vector2(1.2417634e-06, 7.947286e-07)
 shape = SubResource("RectangleShape2D_n5qf0")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=217656]
+position = Vector2(-1, -31)
+points = PackedVector2Array(0, 0, 0, -800)
+width = 1.99
+default_color = Color(0.36078432, 0.6117647, 0.6509804, 1)

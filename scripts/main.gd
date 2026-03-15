@@ -1,11 +1,12 @@
 class_name Main
 extends Node
 
-@onready var time_label: Label = $"UI/Game UI/Label"
-@onready var money_label: Label = $"UI/Menu UI/MoneyLabel"
-@onready var camera_2d: Camera2D = $Gameplay/Camera2D
-@onready var menu_ui: Control = $"UI/Menu UI"
-@onready var game_ui: Control = $"UI/Game UI"
+@export var time_label: Label
+@export var camera_2d: Camera2D
+@export var menu_ui: Control
+@export var game_ui: Control
+@export var cursor: Cursor
+@export var hook_fade_time: float =  1.0
 
 var time_left: float
 @export var time: float = 40
@@ -25,8 +26,7 @@ func _process(delta: float) -> void:
 	time_left -= delta
 	if time_left <= 0:
 		time_left = 0
-		fishing = false
-		camera_2d.move_to(0,3)
+		days_end()
 	pass
 
 func open_summary() -> void:
@@ -38,20 +38,29 @@ func _on_back_to_menu() -> void:
 
 func _on_fishing_button_pressed() -> void:
 	menu_ui.visible = false
-	game_ui.visible = true
 	update_timer(time)
 	pass
 
 func start_timer() -> void:
+	game_ui.visible = true
 	fishing = true
+	cursor.show()
+	cursor.modulate = Color.TRANSPARENT
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(cursor, "modulate", Color.WHITE, hook_fade_time)
 	time_left = time
 	
 func days_end() -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(cursor, "modulate", Color.TRANSPARENT, hook_fade_time)
+	tween.tween_callback(cursor.hide)
 	fishing = false
+	camera_2d.move_to(0,3)
+	
 
 func update_timer(time: float) -> void:
 	var sec: int = floori(time)%60
 	var min: int = floori(floori(time)/60)
 	var min_txt:String = str(min)+":"
 	var sec_txt:String = "0"+str(sec) if sec < 10 else str(sec)
-	time_label.text = "Time left: " + min_txt+sec_txt
+	time_label.text = min_txt+sec_txt
