@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://b2uoh7rwwhg1" path="res://scripts/camera_2d.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://bpr16eerg5ei7" path="res://scripts/main.gd" id="1_trceg"]
 [ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="2_a8y0u"]
 [ext_resource type="Theme" uid="uid://be471ov2oduy2" path="res://ressources/main_theme.tres" id="2_jbj1t"]
 [ext_resource type="FontFile" uid="uid://b6tn6xiqof0rm" path="res://assets/fonts/Titan_One/TitanOne-Regular.ttf" id="2_jkv2x"]
+=======
+[ext_resource type="Script" uid="uid://bpr16eerg5ei7" path="res://scenes/main.gd" id="1_trceg"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
@@ -200,12 +204,21 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(305, 253)
 scale = Vector2(0.5, 0.5)
 
+<<<<<<< Updated upstream
 [node name="bubbles4" parent="Visuals/Bubbles" unique_id=291709326 instance=ExtResource("3_tipki")]
 position = Vector2(518, 471)
 scale = Vector2(0.5, 0.5)
 
 [node name="bubbles5" parent="Visuals/Bubbles" unique_id=360461579 instance=ExtResource("3_tipki")]
 position = Vector2(798, 467)
+=======
+[node name="bubbles4" parent="Visuals/Bubbles" unique_id=1380498822 instance=ExtResource("3_tipki")]
+position = Vector2(508, 464)
+scale = Vector2(0.5, 0.5)
+
+[node name="bubbles5" parent="Visuals/Bubbles" unique_id=1270823235 instance=ExtResource("3_tipki")]
+position = Vector2(839, 465)
+>>>>>>> Stashed changes
 scale = Vector2(0.5, 0.5)
 
 [node name="Waves" type="Node" parent="Visuals" unique_id=343645996]
