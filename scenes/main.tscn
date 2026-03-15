@@ -1,22 +1,20 @@
 [gd_scene format=3 uid="uid://clcywy3bjl68a"]
 
 [ext_resource type="Script" uid="uid://b2uoh7rwwhg1" path="res://scripts/camera_2d.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://dsmn2qbkoicpk" path="res://assets/decorations/background.png" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bvnangrlj4kax" path="res://scenes/cursor.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://c5xawcrwvcw7m" path="res://scenes/fish_normal.tscn" id="6_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://06hwg1ibipeu" path="res://assets/big_background.png" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="7_tipki"]
 
 [node name="Main" type="Node" unique_id=2076612375]
 
 [node name="Visuals" type="Node" parent="." unique_id=505781156]
 
-[node name="BigBackground" type="Sprite2D" parent="Visuals" unique_id=1026328720]
-texture_filter = 1
+[node name="BigBackground" type="Sprite2D" parent="Visuals" unique_id=2129548976]
 position = Vector2(640, 360)
-texture = ExtResource("6_tefeu")
+texture = ExtResource("1_o6xl0")
 
 [node name="Boat" type="Sprite2D" parent="Visuals" unique_id=1962119179]
 position = Vector2(188, 169)
@@ -50,7 +48,7 @@ limit_bottom = 180
 script = ExtResource("1_o5qli")
 
 [node name="Cursor" parent="Gameplay" unique_id=29777647 instance=ExtResource("3_sugp2")]
-position = Vector2(398, 244)
+position = Vector2(649, 237)
 
 [node name="TopLeftMarker" type="Marker2D" parent="Gameplay" unique_id=1953625695]
 unique_name_in_owner = true
@@ -58,14 +56,10 @@ position = Vector2(374, 198)
 
 [node name="BotRightMarker" type="Marker2D" parent="Gameplay" unique_id=1583128163]
 unique_name_in_owner = true
-position = Vector2(1014, 540)
+position = Vector2(1014, 550)
 
 [node name="FishNormal" parent="Gameplay" unique_id=2065414123 instance=ExtResource("6_o6xl0")]
 position = Vector2(817, 328)
 
 [node name="FishEasy" parent="Gameplay" unique_id=649289354 instance=ExtResource("7_tipki")]
 position = Vector2(542, 399)
-min_speed = 80.1
-max_speed = 120.01
-min_angular_speed = 0.74
-max_angular_speed = 1.1

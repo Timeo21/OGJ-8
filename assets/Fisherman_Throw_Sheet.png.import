@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsmn2qbkoicpk"
-path="res://.godot/imported/background.png-f97d626d2de74ed96c94f6cc3a4ff60c.ctex"
+uid="uid://c7uthvjbsw4y0"
+path="res://.godot/imported/Fisherman_Throw_Sheet.png-82ea651f22817735f4debbb8e5bc11a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/decorations/background.png"
-dest_files=["res://.godot/imported/background.png-f97d626d2de74ed96c94f6cc3a4ff60c.ctex"]
+source_file="res://assets/Fisherman_Throw_Sheet.png"
+dest_files=["res://.godot/imported/Fisherman_Throw_Sheet.png-82ea651f22817735f4debbb8e5bc11a7.ctex"]
 
 [params]
 

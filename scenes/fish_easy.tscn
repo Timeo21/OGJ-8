@@ -8,12 +8,6 @@ size = Vector2(63, 19.25)
 
 [node name="FishEasy" type="Node2D" unique_id=2065414123]
 script = ExtResource("1_x1fwn")
-min_speed = null
-max_speed = null
-min_angular_speed = null
-max_angular_speed = null
-capture_speed = null
-decay_speed = null
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1660325061]
 position = Vector2(-3, 0)
