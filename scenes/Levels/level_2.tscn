@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ca00edcqlo3oe"]
+
+[ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="1_603ed"]
+[ext_resource type="PackedScene" uid="uid://c5xawcrwvcw7m" path="res://scenes/fish_normal.tscn" id="2_04sgr"]
+
+[node name="Level2" type="Node" unique_id=1094938693]
+
+[node name="FishEasy" parent="." unique_id=2065414123 instance=ExtResource("1_603ed")]
+position = Vector2(182, 43)
+
+[node name="FishEasy2" parent="." unique_id=2113861771 instance=ExtResource("1_603ed")]
+position = Vector2(76, 136)
+
+[node name="FishNormal" parent="." unique_id=397693526 instance=ExtResource("2_04sgr")]
+position = Vector2(411, 129)
+base_speed = 100.0
+
+[node name="FishNormal2" parent="." unique_id=532303561 instance=ExtResource("2_04sgr")]
+position = Vector2(301, 231)
+base_speed = 100.0

@@ -16,9 +16,10 @@ var capture_progress:float
 
 
 func _ready() -> void:
-	var marker: Marker2D = %TopLeftMarker
+	var dir: Directory = get_tree().get_root().get_node("Main/Directory")
+	var marker: Marker2D = dir.top_left_maker
 	top_left_pos = marker.position
-	marker = %BotRightMarker
+	marker = dir.bot_right_maker
 	bot_right_pos = marker.position
 	pass
 
@@ -53,3 +54,4 @@ func capture() -> void:
 	SignalBus.fish_caugth.emit(fish_type)
 	queue_free()
 	pass
+	

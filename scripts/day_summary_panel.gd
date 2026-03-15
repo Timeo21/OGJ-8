@@ -19,7 +19,7 @@ func display_day_summary(day_summary: DaySummary) -> void:
 	var n3 := day_summary.hard_fish_number
 	easy_num.text = "Easy fish number: %d" % n1
 	normal_num.text = "Normal fish number: %d" % n2
-	hard_num.text = "Normal fish number: %d" % n3
+	hard_num.text = "Hard fish number: %d" % n3
 	
 	var v1 := n1*Utils.EASY_FISH_WORTH
 	var v2 := n2*Utils.NORMAL_FISH_WORTH
