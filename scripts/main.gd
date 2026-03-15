@@ -19,7 +19,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	update_labels()
 	if not fishing:
 		return
 	update_timer(time_left)
@@ -49,9 +48,6 @@ func start_timer() -> void:
 	
 func days_end() -> void:
 	fishing = false
-
-func update_labels() -> void:
-	money_label.text = "Money: "+str(GameState.bank_money)
 
 func update_timer(time: float) -> void:
 	var sec: int = floori(time)%60
