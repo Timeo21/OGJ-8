@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="2_a8y0u"]
 [ext_resource type="Theme" uid="uid://be471ov2oduy2" path="res://ressources/main_theme.tres" id="2_jbj1t"]
 [ext_resource type="FontFile" uid="uid://b6tn6xiqof0rm" path="res://assets/fonts/Titan_One/TitanOne-Regular.ttf" id="2_jkv2x"]
-[ext_resource type="Resource" path="res://ressources/level_list.tres" id="2_muem4"]
+[ext_resource type="Resource" uid="uid://dnv34xieqh14q" path="res://ressources/level_list.tres" id="2_muem4"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
@@ -311,6 +311,21 @@ position = Vector2(741, 266)
 [node name="FishSpawner11" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=794724473]
 unique_name_in_owner = true
 position = Vector2(918, 250)
+
+[node name="Panel" type="Panel" parent="." unique_id=727349063]
+offset_left = 921.0
+offset_top = 201.0
+offset_right = 1008.0
+offset_bottom = 234.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Panel" unique_id=1657241794]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
+text = "Press \"up\" and \"right\" 
+to move the bait"
 
 [connection signal="pressed" from="UI/Control/Menu UI/Button" to="." method="_on_fishing_button_pressed"]
 [connection signal="pressed" from="UI/Control/Menu UI/Button" to="Visuals/Fisherman" method="_on_button_pressed"]
