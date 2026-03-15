@@ -139,8 +139,7 @@ position = Vector2(607, 156)
 [node name="Camera2D" type="Camera2D" parent="Gameplay" unique_id=1904801016]
 show_behind_parent = true
 top_level = true
-position = Vector2(694, 378)
-enabled = false
+position = Vector2(323, 183)
 limit_enabled = false
 limit_left = -340
 limit_top = -180
@@ -153,11 +152,11 @@ position = Vector2(649, 237)
 
 [node name="CameraMenu" type="Marker2D" parent="Gameplay" unique_id=138323782]
 unique_name_in_owner = true
-position = Vector2(374, 198)
+position = Vector2(323, 183)
 
 [node name="CameraGame" type="Marker2D" parent="Gameplay" unique_id=1192370895]
 unique_name_in_owner = true
-position = Vector2(374, 198)
+position = Vector2(694, 378)
 
 [node name="TopLeftMarker" type="Marker2D" parent="Gameplay" unique_id=1953625695]
 unique_name_in_owner = true
