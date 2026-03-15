@@ -3,6 +3,7 @@ class_name Fish extends Node2D
 @onready var area: Area2D = $Area2D
 @onready var bar: ProgressBar = $ProgressBar
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var director: Directory = get_tree().get_root().get_node("Main/Directory")
 
 var top_left_pos: Vector2
 var bot_right_pos: Vector2
@@ -53,6 +54,8 @@ func progress_bar(progress_unit: float) -> void:
 func capture() -> void:
 	print("fish emitting capture")
 	SignalBus.fish_caugth.emit(fish_type)
+	director.fishes.erase(self)
 	queue_free()
+	
 	pass
 	
