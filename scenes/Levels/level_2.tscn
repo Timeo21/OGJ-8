@@ -7,9 +7,13 @@
 
 [node name="FishEasy" parent="." unique_id=2065414123 instance=ExtResource("1_603ed")]
 position = Vector2(182, 43)
+capture_speed = 0.15
+decay_speed = -0.12
 
 [node name="FishEasy2" parent="." unique_id=2113861771 instance=ExtResource("1_603ed")]
 position = Vector2(76, 136)
+capture_speed = 0.15
+decay_speed = -0.12
 
 [node name="FishNormal" parent="." unique_id=397693526 instance=ExtResource("2_04sgr")]
 position = Vector2(411, 129)
