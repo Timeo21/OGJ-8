@@ -1,27 +1,25 @@
-[gd_scene format=3 uid="uid://bot3h4ngyswtu"]
+[gd_scene format=3 uid="uid://x3mmtgegogmo"]
 
-[ext_resource type="Script" uid="uid://bsrmon7h4l0js" path="res://scripts/fish_easy.gd" id="1_x1fwn"]
-[ext_resource type="SpriteFrames" uid="uid://oau41gy6f6cs" path="res://assets/red_fish.tres" id="2_x1fwn"]
+[ext_resource type="Script" uid="uid://c6p5h2ujqljpi" path="res://scripts/fish_shark.gd" id="1_pnhxy"]
+[ext_resource type="Texture2D" uid="uid://b75s71df3kcnl" path="res://assets/dar_shark.png" id="2_2u20r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(119, 44)
 
-[node name="FishEasy" type="Node2D" unique_id=2065414123]
-script = ExtResource("1_x1fwn")
-decay_speed = -0.3
+[node name="FishShark" type="Node2D" unique_id=2065414123]
+script = ExtResource("1_pnhxy")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1660325061]
 position = Vector2(-3, 0)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=25789937]
-position = Vector2(-0.5, -2.375)
+position = Vector2(4.5, -2)
 shape = SubResource("RectangleShape2D_sugp2")
 debug_color = Color(0.4887545, 0.56274337, 0.45492393, 0.41960785)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=653468763]
-texture_filter = 1
-sprite_frames = ExtResource("2_x1fwn")
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=2060509752]
+texture = ExtResource("2_2u20r")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=2005186020]
 offset_left = 30.0
