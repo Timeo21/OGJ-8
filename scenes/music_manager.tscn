@@ -12,8 +12,10 @@ click_player = NodePath("ClickPlayer")
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=112407816]
 stream = ExtResource("1_tn5dr")
 autoplay = true
+playback_type = 1
 
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=604848788]
 stream = ExtResource("3_jd6i5")
+playback_type = 1
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_audio_stream_player_finished"]
