@@ -15,4 +15,5 @@ func _on_day_summary_panel_day_summary_next() -> void:
 	buy_panel.show()
 
 func _on_buy_panel_buy_panel_next() -> void:
-	TransitionPlayer.change_scene("res://scenes/main.tscn")
+	GameState.day_counter += 1
+	TransitionPlayer.change_scene("res://scenes/maison.tscn")

@@ -15,4 +15,4 @@ func _on_quit_game_pressed():
 
 
 func _on_button_pressed() -> void:
-	TransitionPlayer.change_scene("res://scenes/main.tscn")
+	TransitionPlayer.change_scene("res://scenes/maison.tscn")
