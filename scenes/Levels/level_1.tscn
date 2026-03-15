@@ -6,12 +6,16 @@
 
 [node name="FishEasy" parent="." unique_id=2065414123 instance=ExtResource("1_ptgt0")]
 position = Vector2(194, 101)
+decay_speed = -0.12
 
 [node name="FishEasy2" parent="." unique_id=1758554962 instance=ExtResource("1_ptgt0")]
 position = Vector2(74, 196)
+decay_speed = -0.12
 
 [node name="FishEasy3" parent="." unique_id=1068748903 instance=ExtResource("1_ptgt0")]
 position = Vector2(279, 170)
+decay_speed = -0.12
 
 [node name="FishEasy4" parent="." unique_id=1817418538 instance=ExtResource("1_ptgt0")]
 position = Vector2(418, 222)
+decay_speed = -0.12
