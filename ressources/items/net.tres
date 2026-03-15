@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://dwp77jmw6leg3"]
+
+[ext_resource type="Texture2D" uid="uid://r4w5kquecpki" path="res://assets/final_icons/net.png" id="1_h5wb8"]
+[ext_resource type="Script" uid="uid://dxnf2wjrm02" path="res://scripts/GameItem.gd" id="1_lcmug"]
+
+[resource]
+script = ExtResource("1_lcmug")
+name = "Net"
+id = 5
+image = ExtResource("1_h5wb8")
+price = 3
+metadata/_custom_type_script = "uid://dxnf2wjrm02"
