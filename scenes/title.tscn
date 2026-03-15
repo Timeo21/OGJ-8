@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byxrepikryhpo"]
 
-[ext_resource type="Script" uid="uid://cnt8r255emko8" path="res://scripts/game_manager.gd" id="1_4ignj"]
+[ext_resource type="Script" uid="uid://cnt8r255emko8" path="res://scripts/title.gd" id="1_4ignj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pvspv"]
 line_spacing = 4.57

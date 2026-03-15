@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2uoh7rwwhg1" path="res://scripts/camera_2d.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
+[ext_resource type="Script" uid="uid://bpr16eerg5ei7" path="res://scenes/main.gd" id="1_trceg"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="3_eb6dy"]
@@ -10,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bi6vll0nu8e8c" path="res://assets/Line_Throw_Sheet.png" id="4_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5xawcrwvcw7m" path="res://scenes/fish_normal.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bot3h4ngyswtu" path="res://scenes/fish_easy.tscn" id="7_tipki"]
-[ext_resource type="PackedScene" path="res://scenes/hard_fish.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://ctn57t3f21df" path="res://scenes/hard_fish.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="13_trceg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
@@ -71,6 +72,22 @@ animations = [{
 }]
 
 [node name="Main" type="Node" unique_id=2076612375]
+script = ExtResource("1_trceg")
+
+[node name="UI" type="Node" parent="." unique_id=131593825]
+
+[node name="Menu UI" type="Control" parent="UI" unique_id=677685714]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Game UI" type="Control" parent="UI" unique_id=57630753]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Visuals" type="Node" parent="." unique_id=505781156]
 
@@ -131,19 +148,16 @@ limit_right = 320
 limit_bottom = 180
 script = ExtResource("1_o5qli")
 
-[node name="Test" type="Camera2D" parent="Gameplay" unique_id=466596288]
-show_behind_parent = true
-top_level = true
-position = Vector2(320, 180)
-limit_enabled = false
-limit_left = -340
-limit_top = -180
-limit_right = 320
-limit_bottom = 180
-script = ExtResource("1_o5qli")
-
 [node name="Cursor" parent="Gameplay" unique_id=29777647 instance=ExtResource("3_sugp2")]
 position = Vector2(649, 237)
+
+[node name="CameraMenu" type="Marker2D" parent="Gameplay" unique_id=138323782]
+unique_name_in_owner = true
+position = Vector2(374, 198)
+
+[node name="CameraGame" type="Marker2D" parent="Gameplay" unique_id=1192370895]
+unique_name_in_owner = true
+position = Vector2(374, 198)
 
 [node name="TopLeftMarker" type="Marker2D" parent="Gameplay" unique_id=1953625695]
 unique_name_in_owner = true

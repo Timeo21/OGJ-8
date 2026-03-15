@@ -1,4 +1,3 @@
-class_name GameManager
 extends Node
 
 var main_scene: Resource = load("res://scenes/main.tscn")
@@ -7,7 +6,6 @@ var main_scene: Resource = load("res://scenes/main.tscn")
 func _ready() -> void:
 	button.pressed.connect(func() -> void:
 		add_child(main_scene.instantiate())
-		print_tree()
 	)
 	pass
 

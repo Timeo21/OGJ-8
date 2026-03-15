@@ -1,13 +1,17 @@
 extends Camera2D
 
+@onready var menu_pos: Vector2
+@onready var game_pos: Vector2
 
-# Called when the node enters the scene tree for the first time.
+var target: Vector2
+var time: float
+
 func _ready() -> void:
-	var topLeft = position - get_viewport_rect().size / 2
-	var botRight = position + get_viewport_rect().size / 2
-	print(topLeft)
-	print(botRight)
-	pass # Replace with function body.
+	var marker: Marker2D = %CameraMenu
+	menu_pos = marker.position
+	marker = %CameraGame
+	
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
