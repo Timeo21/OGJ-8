@@ -55,6 +55,7 @@ func _process(delta: float) -> void:
 		timer = delta + timer 
 		panel_8.visible = true 
 		if timer >= 4:
+			print(timer1)
 			panel_8.visible = false
 			panel_9.visible = true
 			timer = delta + timer
@@ -62,11 +63,11 @@ func _process(delta: float) -> void:
 			if timer >= 9:
 				panel_9.visible = false
 				panel_10.visible = true
-				timer = delta + timer
-				if timer >= 13:
+				timer1 = delta + timer1
+				if timer1 >= 4:
 					panel_10.visible = false
 					panel_11.visible = true
-					timer = delta + timer
-				if timer >= 17:
-					TransitionPlayer.change_scene("res://scenes/main.tscn")
+					timer1 = delta + timer1
+					if timer1 >= 9:
+						TransitionPlayer.change_scene("res://scenes/main.tscn")
 	pass
