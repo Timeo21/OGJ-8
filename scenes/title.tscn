@@ -70,6 +70,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ia1n6"]
+font_size = 7
+font_color = Color(1, 1, 1, 0.50980395)
+
 [node name="Title" type="Control" unique_id=1765425426]
 layout_mode = 3
 anchors_preset = 15
@@ -165,6 +169,18 @@ offset_top = 165.0
 offset_right = 515.0
 offset_bottom = 196.0
 text = "Quit Game"
+
+[node name="Label" type="Label" parent="." unique_id=2135392502]
+z_index = 99
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -11.0
+offset_right = 40.0
+grow_vertical = 0
+text = "V. 0.0.1"
+label_settings = SubResource("LabelSettings_ia1n6")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Quit Game" to="." method="_on_quit_game_pressed"]
