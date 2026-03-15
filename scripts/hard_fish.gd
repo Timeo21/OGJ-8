@@ -5,6 +5,7 @@ extends Fish
 var time_elapsed =0
 @onready var animation : AnimatedSprite2D = $Area2D/AnimatedSprite2D
 var future_position = Vector2.ZERO
+var future_dir = Vector2.ZERO
 
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
@@ -22,6 +23,8 @@ func _ready() -> void:
 	future_position = position
 	animation.animation_looped.connect(func ():
 		#dir = dir.rotated(randf_range(-360,360)/(180*PI) * speed_angular * delta)
+		dir = future_dir
+		queue_redraw()
 		position = future_position
 		time_elapsed =0)
 	pass # Replace with function body.
@@ -41,17 +44,26 @@ func _process(delta: float) -> void:
 		#position = future_position
 		##print(position)
 		#time_elapsed =0
-	dir = dir.rotated(randf_range(-360,360)/(180*PI) * speed_angular * delta)	
+	future_dir = dir.rotated(randf_range(-360,360)/(180*PI) * speed_angular * delta)	
 	
 	
 	if (future_position.x < top_left_pos.x +collision_shape_2d.shape.get_rect().size.x/2):
-		dir = (dir.normalized() + Vector2.RIGHT).normalized() 
+		future_dir = (future_dir.normalized() + Vector2.RIGHT).normalized() 
+		#queue_redraw()
 	elif (future_position.x>bot_right_pos.x - collision_shape_2d.shape.get_rect().size.x/2):
-		dir = (dir.normalized() + Vector2.LEFT).normalized()
+		future_dir = (future_dir.normalized() + Vector2.LEFT).normalized()
+		#queue_redraw()
 	elif (future_position.y >bot_right_pos.y- collision_shape_2d.shape.get_rect().size.y/2):
-		dir = (dir.normalized() + Vector2.UP).normalized()
+		future_dir = (future_dir.normalized() + Vector2.UP).normalized()
+		#queue_redraw()
 	elif (future_position.y < top_left_pos.y+ collision_shape_2d.shape.get_rect().size.y/2):
-		dir = (dir.normalized() + Vector2.DOWN).normalized()
-	future_position += dir.normalized() *speed *delta
+		future_dir = (future_dir.normalized() + Vector2.DOWN).normalized()
+		#queue_redraw()
+	future_position += future_dir.normalized() *speed *delta
+	queue_redraw()
 	pass
 		
+func _draw() -> void:
+	if GameState.isItemOwned(Utils.ItemId.PREDICTION):
+		#draw_line(Vector2.ZERO,  (future_dir.normalized() *100), Color.RED, 1.0)
+		draw_circle(future_position-position, 5, Color.RED)

@@ -30,6 +30,7 @@ func _ready() -> void:
 	sprite_width = collision_shape_2d.shape.get_rect().size.x
 	
 func _process(delta: float) -> void:
+	
 	super._process(delta)
 	angular_speed = randf_range(min_angular_speed, max_angular_speed)
 	speed = randf_range(min_speed, max_speed)
@@ -54,9 +55,11 @@ func _process(delta: float) -> void:
 
 	timer -= delta
 	position += dir.normalized() * speed * delta
+	queue_redraw()
 #
-#func _draw() -> void:
-	#draw_line(Vector2.ZERO, direction.normalized() * 100, Color.RED, 1.0)
+func _draw() -> void:
+	if GameState.isItemOwned(Utils.ItemId.PREDICTION):
+		draw_line(Vector2.ZERO,  (dir.normalized() *100), Color.RED, 1.0)
 	#draw_circle(targetP - position, 5, Color.RED)
 	
 func get_max_speed() -> float:
