@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3pyh52cjbn6y" path="res://scripts/buy_panel.gd" id="1_lqr4q"]
 [ext_resource type="Texture2D" uid="uid://b5f33agcwrnbb" path="res://assets/tmp_icons/fast.png" id="2_uyl20"]
 [ext_resource type="Texture2D" uid="uid://bxl3m04s4mk7t" path="res://assets/tmp_icons/out_of_stock.png" id="2_wgexy"]
+[ext_resource type="Resource" uid="uid://cpp6ay3v0bj0a" path="res://ressources/out_of_stock.tres" id="3_wgexy"]
 
 [node name="BuyPanel" type="Panel" unique_id=2124875960 node_paths=PackedStringArray("image1", "image2", "image3", "buy1", "buy2", "buy3", "money_label")]
 anchors_preset = 15
@@ -23,6 +24,7 @@ buy2 = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Butt
 buy3 = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ButtonRight")
 out_of_stock_img = ExtResource("2_wgexy")
 money_label = NodePath("Label")
+nothing_left = ExtResource("3_wgexy")
 
 [node name="Label" type="Label" parent="." unique_id=1538008580]
 layout_mode = 1
