@@ -27,8 +27,6 @@ func _ready() -> void:
 		fish.position = (fish_spawners.get_children().pick_random() as Marker2D).position
 		
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not fishing:

@@ -17,6 +17,7 @@ var capture_progress:float
 
 func _ready() -> void:
 	var dir: Directory = get_tree().get_root().get_node("Main/Directory")
+	dir.fishes.push_back(self)
 	var marker: Marker2D = dir.top_left_maker
 	top_left_pos = marker.position
 	marker = dir.bot_right_maker
