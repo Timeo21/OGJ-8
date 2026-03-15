@@ -18,7 +18,7 @@ func load_item_pool() -> Array[Utils.ItemId]:
 	var pool: Array[Utils.ItemId] = []
 
 	for v in Utils.ItemId.values():
-		if v != Utils.ItemId.NOTHING_LEFT:
+		if v != Utils.ItemId.NOTHING_LEFT and v != Utils.ItemId.FREEZE:
 			pool.append(v)
 	return pool
 
