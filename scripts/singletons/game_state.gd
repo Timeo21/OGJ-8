@@ -43,3 +43,6 @@ func load_resources_indexed_by_property(path: String) -> Dictionary[Utils.ItemId
 	
 	dir.list_dir_end()
 	return result
+
+func isItemOwned(id: Utils.ItemId) -> bool:
+	return owned_items.has(id)

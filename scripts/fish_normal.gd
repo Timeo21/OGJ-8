@@ -1,7 +1,9 @@
 extends Fish
 
 @export var speed_angular = 50.0
-@export var speed = 100.0
+@onready var speed = get_speed()
+@export var slow_multiplier: float = 0.5
+@export var base_speed: float = 100.0
 var time_elapsed =0
 @onready var animation : AnimatedSprite2D = $Area2D/AnimatedSprite2D
 
@@ -41,4 +43,7 @@ func handle_sprite() -> void:
 	elif (dir.x > 0.2):
 		animation.flip_h = false
 		
-	
+func get_speed() -> float:
+	if GameState.isItemOwned(Utils.ItemId.SLOW):
+		return slow_multiplier*base_speed
+	return base_speed

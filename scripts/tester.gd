@@ -35,3 +35,10 @@ func _ready() -> void:
 		GameState.item_pool = GameState.item_pool.slice(0, 1)
 		buy_panel.show()
 		buy_panel.setup_shop()
+		
+	if test_number == 5:
+		randomize()
+		GameState.owned_items.push_back(Utils.ItemId.SLOW)
+		var i: int = GameState.item_pool.find(Utils.ItemId.SLOW)
+		GameState.item_pool.remove_at(i)
+		TransitionPlayer.change_scene("res://scenes/main.tscn")
