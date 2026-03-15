@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 	pass
 
 func open_summary() -> void:
+	print("should transtition")
 	TransitionPlayer.change_scene("res://scenes/shop.tscn")
 	
 func _on_back_to_menu() -> void:

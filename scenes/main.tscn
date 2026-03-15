@@ -85,7 +85,6 @@ camera_2d = NodePath("Gameplay/Camera2D")
 menu_ui = NodePath("UI/Control/Menu UI")
 game_ui = NodePath("UI/Control/Game UI")
 cursor = NodePath("Gameplay/Cursor")
-time = 39.95
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1388712454]
 

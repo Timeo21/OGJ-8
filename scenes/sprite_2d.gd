@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 	if GameState.day_counter == 0:
 		panel.visible = true 
 		timer = delta + timer
-		print(timer)
 		if timer >= 4:
 			timer1 = delta + timer1
 			panel.visible = false
