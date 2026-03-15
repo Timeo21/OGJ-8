@@ -6,7 +6,13 @@ enum Mode {MASH, KEEP}
 var top_left_pos: Vector2
 var bot_right_pos: Vector2
 
+var closest_position = Vector2.DOWN *100000
+var lowest_dist =100000.0
+var time_spent =0
+
+
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var dir: Directory = get_tree().get_root().get_node("Main/Directory")
 
 @export var decel: float = 200
 @export var boost_mash: float = 200
@@ -18,7 +24,10 @@ var bot_right_pos: Vector2
 @export var mode: Mode = Mode.KEEP
 @export var border_offset: float = 0
 
+
+
 func _ready() -> void:
+	
 	var marker: Marker2D = %TopLeftMarker
 	top_left_pos = marker.position
 	marker = %BotRightMarker
@@ -53,9 +62,30 @@ func _physics_process(delta: float) -> void:
 	position.y = clamp(position.y, top_left_pos.y + collision_shape.shape.get_rect().size.y/2,bot_right_pos.y - collision_shape.shape.get_rect().size.y/2)
 	
 	# so that speed at botom is 0
-	speed = (position - prev_pos) / delta 
+	if ((position - prev_pos) / delta < Vector2(max_speed,max_speed)):
+		speed = (position - prev_pos) / delta 
+	
+	time_spent +=delta
+	if (time_spent >= 5):
+		tp_to_closest()
+		time_spent =0
 	
 func get_max_speed() -> float:
 	if GameState.isItemOwned(Utils.ItemId.FAST):
 		return fast_multiplier*base_max_speed
 	return base_max_speed
+	
+func tp_to_closest() -> void:
+	if GameState.isItemOwned(Utils.ItemId.TP):
+		for fishes in dir.fishes:
+			if position.distance_to(fishes.position) < lowest_dist:
+				closest_position = fishes.position
+				lowest_dist =position.distance_to(fishes.position)
+		position = closest_position
+		speed = Vector2.ZERO
+		closest_position = Vector2.DOWN *100000
+		lowest_dist = 1000000.0
+	pass
+	
+
+	
