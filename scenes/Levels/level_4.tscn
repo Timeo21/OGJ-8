@@ -7,3 +7,7 @@
 [node name="FishShark" parent="." unique_id=2065414123 instance=ExtResource("1_fxlf4")]
 position = Vector2(279, 144)
 decay_speed = -0.1
+
+[node name="FishShark2" parent="." unique_id=40058627 instance=ExtResource("1_fxlf4")]
+position = Vector2(442, 253)
+decay_speed = -0.1
