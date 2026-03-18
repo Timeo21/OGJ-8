@@ -1,6 +1,8 @@
 class_name Main
 extends Node
 
+@onready var button: Button = $"UI/Control/Menu UI/Button"
+
 @export var time_label: Label
 @export var camera_2d: Camera2D
 @export var menu_ui: Control
@@ -17,6 +19,7 @@ var fishing: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	button.grab_focus( )
 	camera_2d.on_reach_game_pos.connect(func(): start_timer())
 	camera_2d.on_reach_menu_pos.connect(func(): open_summary())
 	var fishes: Node = level_list.levels[GameState.day_counter].instantiate() as Node
@@ -39,7 +42,6 @@ func _process(delta: float) -> void:
 	pass
 
 func open_summary() -> void:
-	print("should transtition")
 	TransitionPlayer.change_scene("res://scenes/shop.tscn")
 	
 func _on_back_to_menu() -> void:

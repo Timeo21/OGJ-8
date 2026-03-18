@@ -198,6 +198,7 @@ sprite_frames = SubResource("SpriteFrames_8rapw")
 speed_scale = 1.2
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1204473476]
+modulate = Color(0, 18.892157, 0, 1)
 offset_left = 30.0
 offset_top = -11.0
 offset_right = 34.0

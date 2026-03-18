@@ -11,7 +11,6 @@ func _ready() -> void:
 	SignalBus.fish_caugth.connect(update_summary)
 	
 func update_summary(type: Utils.FishType) -> void:
-	print("summary listening to capture")
 	summary = summary.increment_specific(type)
 
 func load_item_pool() -> Array[Utils.ItemId]:

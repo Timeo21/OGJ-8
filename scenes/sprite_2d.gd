@@ -63,7 +63,6 @@ func _process(delta: float) -> void:
 		timer = delta + timer 
 		panel_8.visible = true 
 		if timer >= 4:
-			print(timer1)
 			panel_8.visible = false
 			panel_9.visible = true
 			timer = delta + timer

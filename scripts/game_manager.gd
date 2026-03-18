@@ -5,6 +5,7 @@ var main_scene: Resource = load("res://scenes/main.tscn")
 @onready var button: Button = $VBoxContainer/Button
 
 func _ready() -> void:
+	button.grab_focus()
 	pass
 
 func _process(delta: float) -> void:

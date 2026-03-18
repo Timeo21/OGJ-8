@@ -67,7 +67,7 @@ animations = [{
 [node name="FishNormal" unique_id=2065414123 instance=ExtResource("1_rw13n")]
 script = ExtResource("2_86irj")
 speed_angular = 50.0
-speed = 100.0
+base_speed = 100.0
 decay_speed = -1.0
 fish_type = 1
 

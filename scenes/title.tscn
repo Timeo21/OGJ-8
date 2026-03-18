@@ -70,6 +70,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="InputEventKey" id="InputEventKey_ia1n6"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_hiwto"]
+events = [SubResource("InputEventKey_ia1n6")]
+
 [sub_resource type="LabelSettings" id="LabelSettings_ia1n6"]
 font_size = 7
 font_color = Color(1, 1, 1, 0.50980395)
@@ -112,6 +119,7 @@ layout_mode = 2
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=682207274]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_bottom = NodePath("../../Quit Game")
 text = "Play"
 
 [node name="Visuals" type="Node" parent="." unique_id=514855908]
@@ -168,6 +176,8 @@ offset_left = 423.0
 offset_top = 165.0
 offset_right = 515.0
 offset_bottom = 196.0
+shortcut = SubResource("Shortcut_hiwto")
+shortcut_in_tooltip = false
 text = "Quit Game"
 
 [node name="Label" type="Label" parent="." unique_id=2135392502]
@@ -179,6 +189,7 @@ anchor_bottom = 1.0
 offset_top = -11.0
 offset_right = 40.0
 grow_vertical = 0
+focus_neighbor_top = NodePath("../VBoxContainer/Button")
 text = "V. 0.0.1"
 label_settings = SubResource("LabelSettings_ia1n6")
 

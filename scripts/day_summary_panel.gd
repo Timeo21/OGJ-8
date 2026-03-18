@@ -1,5 +1,6 @@
 class_name DaySummaryPanel
 extends PanelContainer
+@onready var button: Button = $MarginContainer/VSplitContainer/CenterContainer/Button
 
 signal day_summary_next
 
@@ -12,8 +13,10 @@ signal day_summary_next
 @export var total_money: Label
 @export var bank_money: Label
 
+func _ready() -> void:
+	button.grab_focus.call_deferred()
+
 func display_day_summary(day_summary: DaySummary) -> void:
-	print("in update day summary")
 	var n1 := day_summary.easy_fish_number
 	var n2 := day_summary.normal_fish_number
 	var n3 := day_summary.hard_fish_number

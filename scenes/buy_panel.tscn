@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dot5nw3cee6xr"]
+[gd_scene format=3 uid="uid://bm1fox804qbs5"]
 
 [ext_resource type="Script" uid="uid://c3pyh52cjbn6y" path="res://scripts/buy_panel.gd" id="1_lqr4q"]
 [ext_resource type="Texture2D" uid="uid://b5f33agcwrnbb" path="res://assets/tmp_icons/fast.png" id="2_uyl20"]
@@ -72,6 +72,10 @@ texture = ExtResource("2_uyl20")
 
 [node name="ButtonLeft" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1" unique_id=1911912965]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer3/ButtonRight")
+focus_neighbor_top = NodePath("../../../CenterContainer/Button")
+focus_neighbor_right = NodePath("../../VBoxContainer2/ButtonMiddle")
+focus_neighbor_bottom = NodePath("../../../CenterContainer/Button")
 text = "BUY"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2040011445]
@@ -84,6 +88,10 @@ texture = ExtResource("2_uyl20")
 
 [node name="ButtonMiddle" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=612332877]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer1/ButtonLeft")
+focus_neighbor_top = NodePath("../../../CenterContainer/Button")
+focus_neighbor_right = NodePath("../../VBoxContainer3/ButtonRight")
+focus_neighbor_bottom = NodePath("../../../CenterContainer/Button")
 text = "BUY"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1794888924]
@@ -96,6 +104,10 @@ texture = ExtResource("2_uyl20")
 
 [node name="ButtonRight" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=672217081]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer2/ButtonMiddle")
+focus_neighbor_top = NodePath("../../../CenterContainer/Button")
+focus_neighbor_right = NodePath("../../VBoxContainer1/ButtonLeft")
+focus_neighbor_bottom = NodePath("../../../CenterContainer/Button")
 text = "BUY"
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=913416467]
@@ -104,6 +116,10 @@ layout_mode = 2
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=797136597]
 custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/VBoxContainer1/ButtonLeft")
+focus_neighbor_top = NodePath("../../HBoxContainer/VBoxContainer2/ButtonMiddle")
+focus_neighbor_right = NodePath("../../HBoxContainer/VBoxContainer3/ButtonRight")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/VBoxContainer2/ButtonMiddle")
 text = "Next"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer1/ButtonLeft" to="." method="_on_button_left_pressed"]

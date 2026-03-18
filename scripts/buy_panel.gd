@@ -13,17 +13,19 @@ signal buy_panel_next
 @export var money_label: Label
 @export var nothing_left: GameItem
 
+@onready var next_button: Button = $MarginContainer/VBoxContainer/CenterContainer/Button
+
 @onready var images: Array[TextureRect] = [image1, image2, image3]
 @onready var buy_buttons: Array[Button] = [buy1, buy2, buy3]
 
-var to_offer: Array[Utils.ItemId]
+var to_offer: Array[Utils.ItemId] 
 
 func setup_shop() -> void:
+	next_button.grab_focus()
 	to_offer = GameState.item_pool
 	to_offer.shuffle()
 	to_offer = to_offer.slice(0, 3)
 	
-	print("number of items: %d" % to_offer.size())
 	while to_offer.size() < 3:
 		to_offer.push_back(Utils.ItemId.NOTHING_LEFT)
 	money_label.text = "%d$" % GameState.bank_money

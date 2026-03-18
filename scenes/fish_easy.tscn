@@ -24,12 +24,12 @@ texture_filter = 1
 sprite_frames = ExtResource("2_x1fwn")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=2005186020]
+modulate = Color(0, 18.892157, 0, 1)
 offset_left = 30.0
 offset_top = -15.0
 offset_right = 34.0
 offset_bottom = 12.0
 max_value = 1.0
-value = 1.0
 fill_mode = 3
 show_percentage = false
 metadata/_edit_use_anchors_ = true

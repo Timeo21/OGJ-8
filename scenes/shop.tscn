@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b2rcxd26qte3" path="res://scripts/shop.gd" id="1_1l46r"]
 [ext_resource type="Theme" uid="uid://be471ov2oduy2" path="res://ressources/main_theme.tres" id="1_2fc2m"]
 [ext_resource type="PackedScene" uid="uid://l51u8gk0bukm" path="res://scenes/day_summary_panel.tscn" id="1_lx5au"]
-[ext_resource type="PackedScene" path="res://scenes/buy_panel.tscn" id="2_xfvoa"]
+[ext_resource type="PackedScene" uid="uid://bm1fox804qbs5" path="res://scenes/buy_panel.tscn" id="2_xfvoa"]
 [ext_resource type="Texture2D" uid="uid://d3x2qthwwq1fi" path="res://assets/Maison.png" id="3_2fc2m"]
 [ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="3_8r1wq"]
 

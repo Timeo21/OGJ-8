@@ -112,6 +112,7 @@ position = Vector2(9, -11)
 sprite_frames = SubResource("SpriteFrames_xt8rk")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=2005186020]
+modulate = Color(0, 18.892157, 0, 1)
 offset_left = 69.0
 offset_top = -27.0
 offset_right = 73.0

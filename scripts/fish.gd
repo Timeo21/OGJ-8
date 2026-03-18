@@ -27,7 +27,6 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	#print(capture_progress)
 	if (area.has_overlapping_areas()):
 		progress_bar(capture_speed*delta)
 	else:
@@ -39,6 +38,7 @@ func progress_bar(progress_unit: float) -> void:
 	if capture_progress >= 1:
 		capture()
 	capture_progress = clamp(capture_progress,0,1)
+	bar.visible = capture_progress > 0
 	bar.value = capture_progress
 	position.x = clamp(position.x,top_left_pos.x, bot_right_pos.x)
 	position.y = clamp(position.y,top_left_pos.y, bot_right_pos.y)
@@ -53,7 +53,6 @@ func progress_bar(progress_unit: float) -> void:
 		dir = (dir.normalized() + Vector2.DOWN).normalized()
 
 func capture() -> void:
-	print("fish emitting capture")
 	SignalBus.fish_caugth.emit(fish_type)
 	director.fishes.erase(self)
 	queue_free()
