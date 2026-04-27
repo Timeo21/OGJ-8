@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wdrk5"]
 shader = ExtResource("1_gt360")
-shader_parameter/t = 0.7
+shader_parameter/t = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt360"]
 atlas = ExtResource("1_2eoim")

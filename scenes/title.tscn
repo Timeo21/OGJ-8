@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://byxrepikryhpo"]
 
 [ext_resource type="Script" uid="uid://u70k7uusqtsc" path="res://scripts/game_manager.gd" id="1_4ignj"]
+[ext_resource type="FontFile" uid="uid://cwn2kp2sxei55" path="res://assets/fonts/GameStar.ttf" id="2_hiwto"]
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="2_ia1n6"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="3_hiwto"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="4_w65of"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="6_6civk"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="7_7af2g"]
 [ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="8_81wt4"]
+[ext_resource type="Texture2D" uid="uid://dtf1a4chf78vt" path="res://Screenshot_20260427_165605_Noteshelf.jpg" id="10_w65of"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pvspv"]
 line_spacing = 4.57
@@ -107,8 +109,8 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=147481298]
 layout_mode = 2
-text = "Tim's fishing
-"
+theme_override_fonts/font = ExtResource("2_hiwto")
+text = "TIM'S FISHING"
 label_settings = SubResource("LabelSettings_pvspv")
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=2018099680]
@@ -156,15 +158,15 @@ texture = ExtResource("6_6civk")
 [node name="Bubbles" type="Node" parent="Visuals" unique_id=1582307155]
 
 [node name="bubbles" parent="Visuals/Bubbles" unique_id=861841015 instance=ExtResource("7_7af2g")]
-position = Vector2(28, 264)
+position = Vector2(71, 282)
 scale = Vector2(0.5, 0.5)
 
 [node name="bubbles2" parent="Visuals/Bubbles" unique_id=1503737374 instance=ExtResource("7_7af2g")]
-position = Vector2(228, 264)
-scale = Vector2(0.5, 0.5)
+position = Vector2(152, 323)
+scale = Vector2(0.295, 0.295)
 
 [node name="bubbles3" parent="Visuals/Bubbles" unique_id=425044256 instance=ExtResource("7_7af2g")]
-position = Vector2(305, 253)
+position = Vector2(236, 299)
 scale = Vector2(0.5, 0.5)
 
 [node name="Waves" type="Node" parent="Visuals" unique_id=787428709]
@@ -190,6 +192,12 @@ grow_vertical = 0
 focus_neighbor_top = NodePath("../VBoxContainer/Button")
 text = "V. 0.0.2"
 label_settings = SubResource("LabelSettings_ia1n6")
+
+[node name="Screenshot20260427165605Noteshelf" type="Sprite2D" parent="." unique_id=1587504408]
+z_index = 1
+position = Vector2(166, 37)
+scale = Vector2(0.11696428, 0.040239703)
+texture = ExtResource("10_w65of")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
