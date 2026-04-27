@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b2olnlfbncshj"]
+
+[ext_resource type="PackedScene" uid="uid://bfygdl8pwhx17" path="res://scenes/input_settings.tscn" id="1_x2hje"]
+[ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="2_nkug2"]
+
+[node name="Settings" type="Node" unique_id=2031137753]
+
+[node name="InputSettings" parent="." unique_id=1054386915 instance=ExtResource("1_x2hje")]
+
+[node name="BigBackground" type="Sprite2D" parent="." unique_id=1435342937]
+z_index = -1
+position = Vector2(310, 154)
+texture = ExtResource("2_nkug2")

@@ -13,6 +13,13 @@
 line_spacing = 4.57
 font_size = 28
 
+[sub_resource type="InputEventKey" id="InputEventKey_ia1n6"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_hiwto"]
+events = [SubResource("InputEventKey_ia1n6")]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
 atlas = ExtResource("5_ygloa")
 region = Rect2(0, 0, 480, 120)
@@ -70,13 +77,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="InputEventKey" id="InputEventKey_ia1n6"]
-device = -1
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_hiwto"]
-events = [SubResource("InputEventKey_ia1n6")]
-
 [sub_resource type="LabelSettings" id="LabelSettings_ia1n6"]
 font_size = 7
 font_color = Color(1, 1, 1, 0.50980395)
@@ -119,8 +119,17 @@ layout_mode = 2
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=682207274]
 layout_mode = 2
 size_flags_horizontal = 4
-focus_neighbor_bottom = NodePath("../../Quit Game")
+focus_neighbor_bottom = NodePath("../Quit Game")
 text = "Play"
+
+[node name="Quit Game" type="Button" parent="VBoxContainer" unique_id=1691939761]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+shortcut = SubResource("Shortcut_hiwto")
+shortcut_in_tooltip = false
+text = "Quit Game"
 
 [node name="Visuals" type="Node" parent="." unique_id=514855908]
 
@@ -169,17 +178,6 @@ position = Vector2(467, 158)
 [node name="Wave3" parent="Visuals/Waves" unique_id=223024151 instance=ExtResource("8_81wt4")]
 position = Vector2(607, 156)
 
-[node name="Quit Game" type="Button" parent="." unique_id=1691939761]
-z_index = 1
-layout_mode = 0
-offset_left = 423.0
-offset_top = 165.0
-offset_right = 515.0
-offset_bottom = 196.0
-shortcut = SubResource("Shortcut_hiwto")
-shortcut_in_tooltip = false
-text = "Quit Game"
-
 [node name="Label" type="Label" parent="." unique_id=2135392502]
 z_index = 99
 layout_mode = 1
@@ -190,8 +188,8 @@ offset_top = -11.0
 offset_right = 40.0
 grow_vertical = 0
 focus_neighbor_top = NodePath("../VBoxContainer/Button")
-text = "V. 0.0.1"
+text = "V. 0.0.2"
 label_settings = SubResource("LabelSettings_ia1n6")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

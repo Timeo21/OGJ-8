@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0rh1pdorbbgn"]
 
-[ext_resource type="Texture2D" uid="uid://dn7u6odagacfe" path="res://scenes/Maisonpng.png" id="1_oayi1"]
-[ext_resource type="Script" uid="uid://ndi6tvtjyhdg" path="res://scenes/sprite_2d.gd" id="2_kihby"]
+[ext_resource type="Texture2D" uid="uid://dn7u6odagacfe" path="res://scripts/Maisonpng.png" id="1_oayi1"]
+[ext_resource type="Script" uid="uid://ndi6tvtjyhdg" path="res://scripts/sprite_2d.gd" id="2_kihby"]
 [ext_resource type="Texture2D" uid="uid://ox7o0v6h6iyc" path="res://assets/pecheurPêche1.png" id="3_oayi1"]
 
 [node name="Maison" type="Node2D" unique_id=1682816922]
@@ -200,8 +200,7 @@ metadata/_edit_group_ = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Maintenant que je t'ai vaincu 
-je peux enfin être libre !"
+text = "Now that I beat you, I can finally be free!"
 
 [node name="Panel13" type="Panel" parent="Sprite2D" unique_id=1983646381]
 visible = false
@@ -214,7 +213,7 @@ offset_bottom = -18.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Merci d'avoir joué"
+text = "Thanks for playing!"
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1171947338]
 visible = false
