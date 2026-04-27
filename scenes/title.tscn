@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="6_6civk"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="7_7af2g"]
 [ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="8_81wt4"]
-[ext_resource type="Texture2D" uid="uid://dtf1a4chf78vt" path="res://Screenshot_20260427_165605_Noteshelf.jpg" id="10_w65of"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pvspv"]
 line_spacing = 4.57
@@ -192,12 +191,6 @@ grow_vertical = 0
 focus_neighbor_top = NodePath("../VBoxContainer/Button")
 text = "V. 0.0.2"
 label_settings = SubResource("LabelSettings_ia1n6")
-
-[node name="Screenshot20260427165605Noteshelf" type="Sprite2D" parent="." unique_id=1587504408]
-z_index = 1
-position = Vector2(166, 37)
-scale = Vector2(0.11696428, 0.040239703)
-texture = ExtResource("10_w65of")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
