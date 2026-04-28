@@ -78,10 +78,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ia1n6"]
-font_size = 7
-font_color = Color(1, 1, 1, 0.50980395)
-
 [node name="Title" type="Control" unique_id=1765425426]
 layout_mode = 3
 anchors_preset = 15
@@ -178,19 +174,6 @@ position = Vector2(467, 158)
 
 [node name="Wave3" parent="Visuals/Waves" unique_id=223024151 instance=ExtResource("8_81wt4")]
 position = Vector2(607, 156)
-
-[node name="Label" type="Label" parent="." unique_id=2135392502]
-z_index = 99
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -11.0
-offset_right = 40.0
-grow_vertical = 0
-focus_neighbor_top = NodePath("../VBoxContainer/Button")
-text = "V. 0.0.2"
-label_settings = SubResource("LabelSettings_ia1n6")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
