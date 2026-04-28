@@ -26,7 +26,7 @@ func skipCin() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("skip"):
 		timer += 99
 		timer1 += 99
 	if GameState.day_counter == 0:

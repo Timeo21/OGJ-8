@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"is_action\\\\|Input\\\\\\\\.is_action\\\\|event.is_action\" /c/Users/timeo/Bureau/EPFL/Github/Game/OGJ-8 --include=\"*.gd\" -n)"
+    ]
+  }
+}
