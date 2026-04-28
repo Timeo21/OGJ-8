@@ -7,3 +7,4 @@ enum BuyButtonPostion {LEFT, MIDDLE, RIGHT}
 const EASY_FISH_WORTH: int = 1
 const NORMAL_FISH_WORTH: int = 2
 const HARD_FISH_WORTH: int = 5
+const TIME_LEFT_WORTH: float = 1.0/3.0

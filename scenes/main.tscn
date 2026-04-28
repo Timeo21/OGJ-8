@@ -83,7 +83,7 @@ time_label = NodePath("UI/Control/Game UI/Label")
 camera_2d = NodePath("Gameplay/Camera2D")
 menu_ui = NodePath("UI/Control/Menu UI")
 game_ui = NodePath("UI/Control/Game UI")
-fish_root = NodePath("Gameplay")
+fish_root = NodePath("Gameplay/FishRoot")
 cursor = NodePath("Gameplay/Cursor")
 level_list = ExtResource("2_muem4")
 fish_spawners = NodePath("Gameplay/Markers/FishSpawners")
@@ -251,8 +251,6 @@ position = Vector2(649, 237)
 unique_name_in_owner = true
 position = Vector2(323, 183)
 
-[node name="FishRoot" type="Node" parent="Gameplay/Markers/Camera" unique_id=1579415648]
-
 [node name="CameraGame" type="Marker2D" parent="Gameplay/Markers/Camera" unique_id=1192370895]
 unique_name_in_owner = true
 position = Vector2(694, 378)
@@ -312,6 +310,8 @@ position = Vector2(741, 266)
 [node name="FishSpawner11" type="Marker2D" parent="Gameplay/Markers/FishSpawners" unique_id=794724473]
 unique_name_in_owner = true
 position = Vector2(918, 250)
+
+[node name="FishRoot" type="Node" parent="Gameplay" unique_id=1749525107]
 
 [node name="Panel" type="Panel" parent="." unique_id=727349063]
 offset_left = 921.0

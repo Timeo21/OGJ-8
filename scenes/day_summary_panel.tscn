@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnx0bxy80hj48" path="res://scripts/day_summary_panel.gd" id="1_e52bd"]
 
-[node name="DaySummaryPanel" type="PanelContainer" unique_id=73380075 node_paths=PackedStringArray("easy_num", "normal_num", "hard_num", "easy_money", "normal_money", "hard_money", "total_money", "bank_money")]
+[node name="DaySummaryPanel" type="PanelContainer" unique_id=73380075 node_paths=PackedStringArray("easy_num", "easy_money", "normal_num", "normal_money", "hard_num", "hard_money", "time_left", "time_money", "bank_money", "total_money")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,14 +13,16 @@ offset_bottom = -86.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e52bd")
-easy_num = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer1/Label")
-normal_num = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2/Label")
-hard_num = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3/Label")
-easy_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer1/Label2")
-normal_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2/Label2")
-hard_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3/Label2")
-total_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer5/Label2")
-bank_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer4/Label2")
+easy_num = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer1/EasyNum")
+easy_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer1/EasyMoney")
+normal_num = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2/NormalNum")
+normal_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2/NormalMoney")
+hard_num = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3/HardNum")
+hard_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3/HardMoney")
+time_left = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer6/TimeLeft")
+time_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer6/TimeLeftMoney")
+bank_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer4/Bank")
+total_money = NodePath("MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer5/TotalMoney")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=147299428]
 layout_mode = 2
@@ -40,12 +42,12 @@ layout_mode = 2
 [node name="HBoxContainer1" type="HBoxContainer" parent="MarginContainer/VSplitContainer/VBoxContainer" unique_id=565460025]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer1" unique_id=1850569775]
+[node name="EasyNum" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer1" unique_id=1850569775]
 custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
 text = "Easy fish number: 5"
 
-[node name="Label2" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer1" unique_id=1508179823]
+[node name="EasyMoney" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer1" unique_id=1508179823]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -55,12 +57,12 @@ horizontal_alignment = 2
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VSplitContainer/VBoxContainer" unique_id=828399382]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2" unique_id=1196413136]
+[node name="NormalNum" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2" unique_id=1196413136]
 custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
 text = "Normal fish number: 5"
 
-[node name="Label2" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2" unique_id=876752971]
+[node name="NormalMoney" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer2" unique_id=876752971]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -70,12 +72,27 @@ horizontal_alignment = 2
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VSplitContainer/VBoxContainer" unique_id=257763446]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3" unique_id=570072978]
+[node name="HardNum" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3" unique_id=570072978]
 custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
 text = "Hard fish number: 5"
 
-[node name="Label2" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3" unique_id=1449017373]
+[node name="HardMoney" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer3" unique_id=1449017373]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "5$"
+horizontal_alignment = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VSplitContainer/VBoxContainer" unique_id=347956561]
+layout_mode = 2
+
+[node name="TimeLeft" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer6" unique_id=469924123]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+text = "Time left: 2"
+
+[node name="TimeLeftMoney" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer6" unique_id=1121368422]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -85,12 +102,12 @@ horizontal_alignment = 2
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VSplitContainer/VBoxContainer" unique_id=1362732181]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer4" unique_id=101328771]
+[node name="Previous" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer4" unique_id=101328771]
 custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
 text = "Money from previous days:"
 
-[node name="Label2" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer4" unique_id=1101010037]
+[node name="Bank" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer4" unique_id=1101010037]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -100,12 +117,12 @@ horizontal_alignment = 2
 [node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VSplitContainer/VBoxContainer" unique_id=64521023]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer5" unique_id=1054926516]
+[node name="Total" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer5" unique_id=1054926516]
 custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
 text = "Total money:"
 
-[node name="Label2" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer5" unique_id=650410074]
+[node name="TotalMoney" type="Label" parent="MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer5" unique_id=650410074]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 10

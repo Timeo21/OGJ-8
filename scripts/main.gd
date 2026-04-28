@@ -36,7 +36,8 @@ func _process(delta: float) -> void:
 		return
 	update_timer(time_left)
 	time_left -= delta
-	if time_left <= 0:
+	if time_left <= 0 or fish_root.get_children().size() == 0:
+		GameState.summary = GameState.summary.set_time_left(clamp(time_left,0,time))
 		time_left = 0
 		days_end()
 	pass

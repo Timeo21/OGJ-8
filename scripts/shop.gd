@@ -6,7 +6,7 @@ extends Control
 func _ready() -> void:
 	buy_panel.hide()
 	day_summary_panel.display_day_summary(GameState.summary)
-	GameState.summary = DaySummary.new(0, 0, 0)
+	GameState.summary = DaySummary.new(0, 0, 0, 0)
 	day_summary_panel.show()
 
 func _on_day_summary_panel_day_summary_next() -> void:

@@ -3,7 +3,7 @@ extends Node
 var day_counter: int = 0
 var owned_items: Array[Utils.ItemId] = []
 var bank_money: int = 0 
-var summary: DaySummary = DaySummary.new(0, 0, 0)
+var summary: DaySummary = DaySummary.new(0, 0, 0, 0)
 @onready var item_pool: Array[Utils.ItemId] = load_item_pool()
 @onready var item_db: Dictionary[Utils.ItemId, GameItem] = load_resources_indexed_by_property("res://ressources/items/")
 
