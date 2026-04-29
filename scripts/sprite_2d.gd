@@ -2,19 +2,19 @@ extends Sprite2D
 
 @onready var sprite_2d_2: Sprite2D = $"../Sprite2D2"
 
-@onready var panel: Panel = $Panel
-@onready var panel_2: Panel = $Panel2
-@onready var panel_3: Panel = $Panel3
-@onready var panel_4: Panel = $Panel4
-@onready var panel_5: Panel = $Panel5
-@onready var panel_6: Panel = $Panel6
-@onready var panel_7: Panel = $Panel7
-@onready var panel_8: Panel = $Panel8
-@onready var panel_9: Panel = $Panel9
-@onready var panel_10: Panel = $Panel10
-@onready var panel_11: Panel = $Panel11
-@onready var panel_12: Panel = $Panel12
-@onready var panel_13: Panel = $Panel13
+@onready var panel: Panel = $Control/Panel
+@onready var panel_2: Panel = $Control/Panel2
+@onready var panel_3: Panel = $Control/Panel3
+@onready var panel_4: Panel = $Control/Panel4
+@onready var panel_5: Panel = $Control/Panel5
+@onready var panel_6: Panel = $Control/Panel6
+@onready var panel_7: Panel = $Control/Panel7
+@onready var panel_8: Panel = $Control/Panel8
+@onready var panel_9: Panel = $Control/Panel9
+@onready var panel_10: Panel = $Control/Panel10
+@onready var panel_11: Panel = $Control/Panel11
+@onready var panel_12: Panel = $Control/Panel12
+@onready var panel_13: Panel = $Control/Panel13
 
 var timer: float
 var timer1: float

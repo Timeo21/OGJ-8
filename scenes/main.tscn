@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://bpr16eerg5ei7" path="res://scripts/main.gd" id="1_trceg"]
 [ext_resource type="PackedScene" uid="uid://3n24msgoysxt" path="res://scenes/item_overlay.tscn" id="2_a8y0u"]
-[ext_resource type="Theme" uid="uid://be471ov2oduy2" path="res://ressources/main_theme.tres" id="2_jbj1t"]
-[ext_resource type="FontFile" uid="uid://b6tn6xiqof0rm" path="res://assets/fonts/Titan_One/TitanOne-Regular.ttf" id="2_jkv2x"]
 [ext_resource type="Resource" uid="uid://dnv34xieqh14q" path="res://ressources/level_list.tres" id="2_muem4"]
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="2_o6xl0"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="2_ya4ey"]
@@ -13,12 +11,9 @@
 [ext_resource type="Script" path="res://scripts/directory.gd" id="3_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://bvnangrlj4kax" path="res://scenes/cursor.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="3_tipki"]
+[ext_resource type="Theme" uid="uid://dv0sa40rmey0p" path="res://main_theme.tres" id="4_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://bi6vll0nu8e8c" path="res://assets/Line_Throw_Sheet.png" id="4_trceg"]
 [ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="13_trceg"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_trceg"]
-font = ExtResource("2_jkv2x")
-font_size = 37
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6jnb"]
 atlas = ExtResource("4_trceg")
@@ -102,7 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_jbj1t")
+theme = ExtResource("4_jkv2x")
 
 [node name="Menu UI" type="Control" parent="UI/Control" unique_id=677685714]
 layout_mode = 1
@@ -131,7 +126,6 @@ text = "Go
 Fishing"
 
 [node name="Game UI" type="Control" parent="UI/Control" unique_id=57630753]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -147,13 +141,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -71.0
-offset_top = -50.0
-offset_right = 71.0
+offset_left = -72.0
+offset_top = -36.0
+offset_right = 70.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 40
 text = "6:07"
-label_settings = SubResource("LabelSettings_trceg")
 horizontal_alignment = 1
 
 [node name="PersistentUI" type="Control" parent="UI/Control" unique_id=972850017]
@@ -314,19 +309,21 @@ position = Vector2(918, 250)
 [node name="FishRoot" type="Node" parent="Gameplay" unique_id=1749525107]
 
 [node name="Panel" type="Panel" parent="." unique_id=727349063]
-offset_left = 921.0
-offset_top = 201.0
-offset_right = 1008.0
-offset_bottom = 234.0
-metadata/_edit_group_ = true
+offset_left = 922.0
+offset_top = 200.0
+offset_right = 994.0
+offset_bottom = 239.0
+theme = ExtResource("4_jkv2x")
 
 [node name="Label" type="Label" parent="Panel" unique_id=1657241794]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 8
-text = "Press \"up\" and \"right\" 
-to move the bait"
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 87.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 10
+text = "Press \"up\" and \"right\" to move the bait"
+autowrap_mode = 2
 
 [connection signal="pressed" from="UI/Control/Menu UI/Button" to="." method="_on_fishing_button_pressed"]
 [connection signal="pressed" from="UI/Control/Menu UI/Button" to="Visuals/Fisherman" method="_on_button_pressed"]

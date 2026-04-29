@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://byxrepikryhpo"]
 
 [ext_resource type="Script" uid="uid://u70k7uusqtsc" path="res://scripts/game_manager.gd" id="1_4ignj"]
-[ext_resource type="FontFile" uid="uid://cwn2kp2sxei55" path="res://assets/fonts/GameStar.ttf" id="2_hiwto"]
+[ext_resource type="Theme" uid="uid://dv0sa40rmey0p" path="res://main_theme.tres" id="1_hiwto"]
 [ext_resource type="Texture2D" uid="uid://vvxuluj886re" path="res://assets/decorations/big_background.png" id="2_ia1n6"]
 [ext_resource type="SpriteFrames" uid="uid://b1c65icbodgvh" path="res://assets/fisherman_throw_line.tres" id="3_hiwto"]
 [ext_resource type="Script" uid="uid://dobt22ok04tf3" path="res://scripts/fisherman.gd" id="4_w65of"]
@@ -9,10 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c0u40vkadh478" path="res://assets/decorations/boat.png" id="6_6civk"]
 [ext_resource type="PackedScene" uid="uid://d2eeqwjb4iiqv" path="res://scenes/bubbles.tscn" id="7_7af2g"]
 [ext_resource type="PackedScene" uid="uid://jxmvxldnlq18" path="res://scenes/wave.tscn" id="8_81wt4"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_pvspv"]
-line_spacing = 4.57
-font_size = 28
 
 [sub_resource type="InputEventKey" id="InputEventKey_ia1n6"]
 device = -1
@@ -85,6 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hiwto")
 script = ExtResource("1_4ignj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1226387094]
@@ -104,13 +101,12 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=147481298]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_hiwto")
-text = "TIM'S FISHING"
-label_settings = SubResource("LabelSettings_pvspv")
+theme_override_font_sizes/font_size = 30
+text = "Tim's Fishing"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=2018099680]
-visible = false
-custom_minimum_size = Vector2(0, 54.145)
+z_index = -1
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=682207274]
